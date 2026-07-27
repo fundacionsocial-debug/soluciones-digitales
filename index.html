@@ -455,43 +455,44 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
    ============================================================ */
 #hoja{display:none}
 @media print{
-  @page{ size:A4; margin:15mm 14mm }
+  /* Ajustado para que TODO quepa en una sola hoja A4 (verificado imprimiendo). */
+  @page{ size:A4; margin:12mm 13mm }
   html,body{background:#fff!important;color:#111!important}
   body>*{display:none!important}
-  #hoja{display:block!important;font-family:var(--font);color:#111;font-size:11pt;line-height:1.5}
+  #hoja{display:block!important;font-family:var(--font);color:#111;font-size:10.5pt;line-height:1.45}
   .aurora,.grid-bg,#scrollbar{display:none!important}
   #hoja *{color:#111}
   .hj-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16pt;
-    border-bottom:2pt solid #111;padding-bottom:8pt;margin-bottom:16pt}
+    border-bottom:2pt solid #111;padding-bottom:6pt;margin-bottom:12pt}
   .hj-marca{display:flex;align-items:center;gap:8pt;font-weight:800;font-size:14pt;letter-spacing:-.02em}
   /* el color va con !important porque `#hoja *` tiene más peso que esta clase */
   .hj-marca span{width:22pt;height:22pt;border-radius:6pt;background:#111;color:#fff!important;
     display:grid;place-items:center;font-size:11pt;line-height:1}
   .hj-top small{font-size:8.5pt;color:#555!important;text-align:right;line-height:1.4;display:block}
-  #hoja h1{font-size:19pt;letter-spacing:-.02em;margin:0 0 6pt;line-height:1.15}
-  #hoja h2{font-size:10pt;letter-spacing:.14em;text-transform:uppercase;color:#666!important;
-    margin:16pt 0 7pt;padding-bottom:3pt;border-bottom:.6pt solid #ccc;font-weight:800}
-  #hoja .hj-sub{font-size:11pt;color:#444!important;margin-bottom:4pt}
-  .hj-box{border:1pt solid #111;border-radius:5pt;padding:10pt 12pt;margin:12pt 0;page-break-inside:avoid;break-inside:avoid}
+  #hoja h1{font-size:17.5pt;letter-spacing:-.02em;margin:0 0 5pt;line-height:1.12}
+  #hoja h2{font-size:9.5pt;letter-spacing:.14em;text-transform:uppercase;color:#666!important;
+    margin:12pt 0 5pt;padding-bottom:3pt;border-bottom:.6pt solid #ccc;font-weight:800}
+  #hoja .hj-sub{font-size:10.5pt;color:#444!important;margin-bottom:3pt}
+  .hj-box{border:1pt solid #111;border-radius:5pt;padding:9pt 11pt;margin:10pt 0;page-break-inside:avoid;break-inside:avoid}
   .hj-pasos div,.hj-firma,.hj-cols>div{page-break-inside:avoid;break-inside:avoid}
   #hoja h2{page-break-after:avoid;break-after:avoid}
   .hj-box .hj-lvl{font-size:8.5pt;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#555!important}
-  .hj-box .hj-money{font-size:20pt;font-weight:800;letter-spacing:-.03em;margin:2pt 0 3pt}
+  .hj-box .hj-money{font-size:18.5pt;font-weight:800;letter-spacing:-.03em;margin:2pt 0 2pt}
   .hj-box p{font-size:9pt;color:#444!important}
   .hj-aviso{display:none;margin-top:7pt;padding-top:6pt;border-top:.6pt solid #bbb}
   .hj-aviso.on{display:block}
-  .hj-dl{display:grid;grid-template-columns:34% 66%;gap:0;font-size:10.5pt}
-  .hj-dl dt{font-weight:700;padding:4.5pt 0;border-top:.6pt solid #e2e2e2}
-  .hj-dl dd{margin:0;padding:4.5pt 0;border-top:.6pt solid #e2e2e2;color:#333!important}
+  .hj-dl{display:grid;grid-template-columns:34% 66%;gap:0;font-size:10pt}
+  .hj-dl dt{font-weight:700;padding:3.4pt 0;border-top:.6pt solid #e2e2e2}
+  .hj-dl dd{margin:0;padding:3.4pt 0;border-top:.6pt solid #e2e2e2;color:#333!important}
   .hj-dl dt:first-of-type,.hj-dl dd:first-of-type{border-top:none}
   .hj-cols{display:grid;grid-template-columns:1fr 1fr;gap:14pt}
-  #hoja ul{margin:0;padding-left:14pt;font-size:10.5pt}
-  #hoja li{margin-bottom:3pt}
-  .hj-pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:10pt;font-size:9.5pt}
-  .hj-pasos div{border:.6pt solid #ccc;border-radius:4pt;padding:8pt}
-  .hj-pasos b{display:block;font-size:9pt;margin-bottom:3pt}
-  .hj-pie{margin-top:18pt;padding-top:8pt;border-top:.6pt solid #ccc;font-size:8pt;color:#666!important;line-height:1.5}
-  .hj-firma{margin-top:14pt;font-size:9.5pt}
+  #hoja ul{margin:0;padding-left:13pt;font-size:10pt}
+  #hoja li{margin-bottom:2.4pt}
+  .hj-pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:9pt;font-size:9pt}
+  .hj-pasos div{border:.6pt solid #ccc;border-radius:4pt;padding:7pt}
+  .hj-pasos b{display:block;font-size:8.8pt;margin-bottom:2.5pt}
+  .hj-pie{margin-top:11pt;padding-top:6pt;border-top:.6pt solid #ccc;font-size:7.6pt;color:#666!important;line-height:1.45}
+  .hj-firma{margin-top:10pt;font-size:9pt}
   .hj-firma b{display:block;margin-bottom:2pt}
   .hj-nada{font-size:11pt;color:#444!important}
 }
@@ -1821,12 +1822,10 @@ function llenarHoja(){
   }
 
   $("#hjPie").innerHTML =
-    esc(CONFIG.marca) + " · Soluciones digitales a medida. " +
-    "Este documento lo generó automáticamente la página a partir de las respuestas del interesado, " +
-    "el " + hoy() + ". No constituye una oferta comercial en firme: los valores son rangos de " +
-    "referencia y el precio definitivo se acuerda por escrito después de revisar el alcance." +
-    (waListo ? " Contacto: +" + esc(CONFIG.whatsapp) + " · " + esc(CONFIG.correo)
-             : " Contacto: " + esc(CONFIG.correo));
+    esc(CONFIG.marca) + " · Soluciones digitales a medida. Documento generado automáticamente el " +
+    hoy() + " con las respuestas del interesado. No es una oferta en firme: los valores son rangos " +
+    "de referencia y el precio definitivo se acuerda por escrito. Contacto: " +
+    (waListo ? "+" + esc(CONFIG.whatsapp) + " · " : "") + esc(CONFIG.correo);
 }
 
 /* ============================================================
