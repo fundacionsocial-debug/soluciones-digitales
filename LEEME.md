@@ -53,15 +53,35 @@ Los tres niveles están juntos, uno debajo del otro. No toques nada más de esa 
 
 ---
 
-## 4. Publicarla en internet (para poder mandar el enlace)
+## 4. Ya está publicada
 
-Igual que juegos-gemb:
+**Enlace para mandar a la gente:**
 
-1. Sube esta carpeta a un repositorio nuevo en GitHub.
-2. En Vercel: *Add New Project* → escoge el repositorio → *Deploy*.
-3. Vercel te da un enlace tipo `https://propuesta-servicios-web.vercel.app`.
+```
+https://soluciones-digitales-eosin.vercel.app
+```
 
-Ese es el enlace que le mandas a la gente por WhatsApp.
+- Repositorio (público): https://github.com/fundacionsocial-debug/soluciones-digitales
+- Proyecto en Vercel: `soluciones-digitales`, en tu cuenta `fundacionsocial-debug`.
+
+> El `-eosin` lo puso Vercel porque `soluciones-digitales.vercel.app` ya lo tenía
+> otra persona. Si algún día compras tu propio dominio (por ejemplo
+> `sebastianlopez.co`), se conecta a este mismo proyecto y el enlace queda limpio.
+
+### Cómo publicar un cambio
+
+Ya está conectado a GitHub: **cada vez que subas un cambio al repositorio, Vercel
+publica solo.** No hay que hacer nada más.
+
+Si lo haces desde esta carpeta, son tres órdenes:
+
+```bash
+git add -A
+git commit -m "lo que cambiaste"
+git push
+```
+
+En un minuto el enlace ya muestra la versión nueva.
 
 No necesita configuración: es una página estática, sin base de datos y sin servidor.
 
