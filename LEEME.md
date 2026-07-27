@@ -25,24 +25,21 @@ Doble clic en **`index.html`**. Se abre en tu navegador y funciona sin internet.
 
 ---
 
-## 2. Lo único que DEBES cambiar: tu WhatsApp
+## 2. Tu WhatsApp (ya está puesto)
 
-Abre `index.html` con el Bloc de notas (clic derecho → *Abrir con* → *Bloc de notas*),
-busca con `Ctrl+B` la palabra `whatsapp` y verás:
+Los botones escriben a **350 852 4481**. Si algún día lo cambias, abre `index.html` con el
+Bloc de notas (clic derecho → *Abrir con* → *Bloc de notas*), busca con `Ctrl+B` la palabra
+`whatsapp` y verás:
 
 ```
-whatsapp : "57XXXXXXXXXX",
+whatsapp : "573508524481",
 ```
 
-Cambia las `X` por tu número: **indicativo del país + número, sin `+`, sin espacios,
-sin guiones**. Colombia es `57`.
-
-Ejemplo: si tu número es 300 123 4567 → `"573001234567"`
-
+Es **indicativo del país + número, sin `+`, sin espacios, sin guiones**. Colombia es `57`.
 Guarda con `Ctrl+G`.
 
-> Mientras diga `XXXXXXXXXX`, los botones de WhatsApp funcionan igual pero abren el
-> **correo** en vez del chat. No se rompe nada.
+> Si el número queda mal escrito (menos de 10 dígitos, o con letras), la página no se rompe:
+> los botones abren el correo en vez del chat.
 
 ---
 
@@ -92,14 +89,23 @@ Están en `assets/`:
 | Archivo | Para qué |
 |---|---|
 | `og-card.jpg` | La imagen que aparece cuando mandas el enlace por WhatsApp |
+| `portada-fondo.jpg` | Fondo a sangre de la pantalla de inicio |
 | `portada-web.jpg` | Tarjeta de la ruta "Página Web" |
 | `portada-sistema.jpg` | Tarjeta de la ruta "Sistema Administrativo" |
-| `hero.jpg` | Fondo del encabezado |
-| `trabajos.jpg` | Banda de la sección "Lo que ya funciona" |
+| `hero-web.jpg` | Fondo del encabezado en la ruta de página web |
+| `hero-sistema.jpg` | Fondo del encabezado en la ruta de sistema |
+| `cierre.jpg` | Fondo del bloque final "Cuéntame tu idea" |
+| `trabajos.jpg` | Banda de la sección "Mi trabajo" |
 
-Los PNG originales (sin comprimir, 8 MB) quedaron en `assets/originales/` **solo en tu
-computador** — no se suben al repositorio. Las que usa la web son los `.jpg`, que juntos
-pesan 441 KB para que la página cargue rápido con datos móviles.
+Los PNG originales (sin comprimir) quedaron en `assets/originales/` **solo en tu
+computador** — no se suben al repositorio; los de la primera versión están en
+`assets/originales/v1/`. Las que usa la web son los `.jpg`, que juntos pesan 594 KB
+para que la página cargue rápido con datos móviles.
+
+> **Importante para los fondos:** no uses imágenes con rectángulos, marcos, paneles ni
+> líneas rectas como fondo. Al ponerlas translúcidas detrás del contenido, esas formas
+> parecen cuadros sueltos y la página se ve como si estuviera dañada. Los fondos deben ser
+> solo luz y color, sin bordes.
 
 > Si cambias `og-card.jpg`, WhatsApp guarda la imagen anterior en memoria un rato.
 > Para forzar que la actualice, cámbiale el nombre del archivo (y actualiza las dos

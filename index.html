@@ -27,7 +27,7 @@
   --a1:#7c5cff; --a2:#22d3ee; --a3:#ff78c8;
   --ok:#34d399; --wa:#25d366;
   --r:18px; --maxw:1180px; --pad:clamp(20px,5vw,44px);
-  --hero-img:url("assets/hero.jpg");
+  --hero-img:url("assets/hero-web.jpg");
   --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
 *{box-sizing:border-box}
@@ -52,6 +52,10 @@ p{margin:0}
   mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%);
   -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%)}
 #scrollbar{position:fixed;top:0;left:0;height:2px;width:0;z-index:70;background:linear-gradient(90deg,var(--a1),var(--a2))}
+/* luz que sigue al cursor */
+#spot{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity .6s;
+  background:radial-gradient(circle 520px at var(--mx,50%) var(--my,40%),rgba(124,92,255,.14),transparent 66%)}
+body.mouse #spot{opacity:1}
 
 .wrap{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
 section{position:relative;z-index:2;padding:clamp(64px,9vw,120px) 0}
@@ -74,8 +78,8 @@ section{position:relative;z-index:2;padding:clamp(64px,9vw,120px) 0}
   text-transform:uppercase;color:var(--ink-2);border:1px solid var(--line);background:var(--card);
   padding:7px 14px;border-radius:999px}
 .eyebrow b{color:var(--a2)}
-h1{font-size:clamp(32px,6.2vw,64px)}
-h2{font-size:clamp(27px,4.4vw,44px)}
+h1{font-size:clamp(34px,7vw,76px);letter-spacing:-.035em}
+h2{font-size:clamp(27px,4.6vw,46px);letter-spacing:-.03em}
 h3{font-size:clamp(19px,2.3vw,23px)}
 .lead{color:var(--ink-2);font-size:clamp(16px,1.9vw,19px);max-width:62ch}
 .sec-head{max-width:min(760px,100%);margin-bottom:clamp(30px,4vw,52px)}
@@ -85,35 +89,49 @@ h3{font-size:clamp(19px,2.3vw,23px)}
 /* ============================================================
    PORTADA — elegir la ruta
    ============================================================ */
-#portada{min-height:100vh;min-height:100dvh;display:flex;align-items:center;padding:clamp(40px,7vh,80px) 0}
-.pt-head{text-align:center;max-width:740px;margin:0 auto clamp(32px,5vw,52px)}
-.pt-head h1{margin:20px 0 16px}
-.pt-head .lead{margin:0 auto}
+#portada{position:relative;min-height:100vh;min-height:100dvh;display:flex;align-items:center;
+  padding:clamp(34px,7vh,80px) 0;overflow:hidden;transition:opacity .42s ease,transform .42s ease}
+#portada::before{content:"";position:absolute;inset:0;z-index:-2;opacity:.6;
+  background:url("assets/portada-fondo.jpg") center/cover no-repeat}
+#portada::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(circle 460px at var(--mx,50%) var(--my,30%),rgba(124,92,255,.2),transparent 68%)}
+#portada.saliendo{opacity:0;transform:scale(.975)}
+body.entrando header,body.entrando main{animation:entra .6s cubic-bezier(.2,.8,.2,1) both}
+@keyframes entra{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.pt-head{text-align:center;max-width:720px;margin:0 auto clamp(30px,4.5vw,48px)}
+.pt-head h1{margin:18px 0 14px;font-size:clamp(38px,8vw,84px)}
+.pt-head .lead{margin:0 auto;font-size:clamp(15.5px,1.7vw,18px)}
 .pt-marca{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:15px;letter-spacing:-.02em}
 .pt-marca .mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--a1),var(--a2));
   display:grid;place-items:center;font-size:14px;color:#06080f}
-.rutas{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:960px;margin:0 auto}
-@media(max-width:820px){.rutas{grid-template-columns:1fr}}
-.ruta{position:relative;text-align:left;border:1px solid var(--line-2);border-radius:24px;overflow:hidden;
-  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));padding:0;transition:.24s;
-  display:flex;flex-direction:column;width:100%}
-.ruta:hover,.ruta:focus-visible{transform:translateY(-5px);border-color:rgba(124,92,255,.55);
-  box-shadow:0 40px 80px -46px rgba(124,92,255,.95)}
-.ruta figure{margin:0;position:relative;aspect-ratio:3/2;overflow:hidden;background:#0a0f1e}
-.ruta figure img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.ruta:hover figure img{transform:scale(1.05)}
-.ruta figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(7,11,22,.92))}
-.ruta .cuerpo{padding:22px 24px 26px}
-.ruta .kicker{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--a2)}
-.ruta h2{font-size:clamp(22px,3vw,29px);margin:9px 0 10px}
-.ruta p{color:var(--ink-2);font-size:15.5px}
-.ruta ul{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:7px}
-.ruta li{font-size:14px;color:var(--ink-3);display:flex;gap:9px}
-.ruta li::before{content:"–";color:var(--a2)}
+.rutas{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:980px;margin:0 auto}
+@media(max-width:820px){.rutas{grid-template-columns:1fr;gap:14px}}
+.ruta{position:relative;text-align:left;border:1px solid var(--line-2);border-radius:26px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));padding:0;
+  display:flex;flex-direction:column;width:100%;backdrop-filter:blur(3px);
+  transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ty,0px));
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s,box-shadow .3s}
+.ruta:hover,.ruta:focus-visible{--ty:-6px;border-color:rgba(124,92,255,.6);
+  box-shadow:0 50px 90px -48px rgba(124,92,255,1)}
+.ruta figure{margin:0;position:relative;aspect-ratio:4/3;overflow:hidden;background:#05070e}
+.ruta figure img{width:100%;height:100%;object-fit:cover;object-position:center 58%;transition:transform .6s}
+.ruta:hover figure img{transform:scale(1.04)}
+.ruta figure::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 34%,rgba(6,9,18,.55) 66%,#080c18 100%)}
+.ruta .cuerpo{padding:0 clamp(20px,2.4vw,26px) clamp(24px,2.6vw,28px);margin-top:-30px;position:relative;z-index:2}
+.ruta .kicker{font-size:10.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--a2)}
+.ruta h2{font-size:clamp(26px,3.4vw,34px);margin:8px 0 8px}
+.ruta p{color:var(--ink-2);font-size:15.5px;max-width:34ch}
 .ruta .go{margin-top:20px;display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:15px;color:var(--ink)}
-.ruta .go i{font-style:normal;transition:.2s}
-.ruta:hover .go i{transform:translateX(5px)}
-.pt-pie{text-align:center;margin-top:30px}
+.ruta .go i{font-style:normal;transition:transform .25s}
+.ruta:hover .go i{transform:translateX(6px)}
+/* en celular la imagen se acorta para que las dos opciones quepan mejor */
+@media(max-width:820px){
+  .ruta figure{aspect-ratio:16/10}
+  .ruta .cuerpo{margin-top:-22px}
+  .ruta h2{font-size:clamp(24px,6.4vw,30px)}
+}
+.pt-pie{text-align:center;margin-top:28px}
 .pt-pie summary{display:inline-flex;cursor:pointer;color:var(--ink-2);font-size:14.5px;
   border-bottom:1px dashed var(--line-2);padding-bottom:2px;list-style:none}
 .pt-pie summary::-webkit-details-marker{display:none}
@@ -143,9 +161,10 @@ header{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);background:rg
 /* ---------- hero ---------- */
 .hero{padding-top:clamp(46px,7vw,80px);padding-bottom:clamp(40px,6vw,64px);overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;z-index:0;background-image:var(--hero-img);
-  background-size:cover;background-position:center;opacity:.3;
-  mask-image:radial-gradient(ellipse 90% 80% at 70% 40%,#000 10%,transparent 72%);
-  -webkit-mask-image:radial-gradient(ellipse 90% 80% at 70% 40%,#000 10%,transparent 72%)}
+  background-size:cover;background-position:center;opacity:.42;
+  mask-image:linear-gradient(180deg,#000 0%,#000 55%,transparent 100%);
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 55%,transparent 100%)}
+body[data-modo="sistema"]{--hero-img:url("assets/hero-sistema.jpg")}
 .hero h1{margin:20px 0 0}
 .rotator{display:block;min-height:1.12em}
 .rotator span{background:linear-gradient(100deg,var(--a2),var(--a1) 60%,var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -181,7 +200,7 @@ header{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);background:rg
   background:linear-gradient(135deg,var(--a1),var(--a2));color:#06080f;padding:5px 10px;border-radius:999px}
 .tier .num{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--a2)}
 .tier h3{margin:9px 0 10px}
-.tier > p{color:var(--ink-2);font-size:15px;min-height:66px}
+.tier > p{color:var(--ink-2);font-size:15px;min-height:46px}
 .tier ul{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:9px}
 .tier li{display:flex;gap:10px;font-size:14.7px;color:var(--ink-2);align-items:flex-start}
 .tier li::before{content:"";flex:0 0 auto;width:16px;height:16px;margin-top:4px;border-radius:5px;
@@ -403,8 +422,11 @@ details.faq summary::-webkit-details-marker{display:none}
 details.faq summary::after{content:"+";color:var(--a2);font-size:22px;font-weight:400;line-height:1;transition:.2s}
 details.faq[open] summary::after{transform:rotate(45deg)}
 details.faq p{padding:0 22px 20px;color:var(--ink-2);font-size:15px}
-.close-box{border:1px solid var(--line-2);border-radius:26px;padding:clamp(30px,5vw,58px);text-align:center;
-  background:radial-gradient(120% 140% at 50% 0%,rgba(124,92,255,.2),transparent 62%),rgba(255,255,255,.03)}
+.close-box{position:relative;border:1px solid var(--line-2);border-radius:26px;overflow:hidden;
+  padding:clamp(34px,5vw,64px);text-align:center;background:rgba(255,255,255,.03)}
+.close-box::before{content:"";position:absolute;inset:0;z-index:0;opacity:.6;
+  background:url("assets/cierre.jpg") center/cover no-repeat}
+.close-box > *{position:relative;z-index:1}
 .close-box h2{margin-bottom:16px}
 .close-box .lead{margin:0 auto}
 .close-box .hero-cta{justify-content:center}
@@ -472,6 +494,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
 
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="grid-bg" aria-hidden="true"></div>
+<div id="spot" aria-hidden="true"></div>
 <div id="scrollbar" aria-hidden="true"></div>
 
 <!-- ================= PORTADA: ELEGIR RUTA ================= -->
@@ -480,61 +503,47 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
     <div class="pt-head">
       <span class="pt-marca"><span class="mark">◆</span> Mi Página</span>
       <h1>¿Qué necesitas <span class="grad">resolver</span>?</h1>
-      <p class="lead">Escoge por dónde empezar. Toda la página se ajusta a lo que elijas, y al final
-      te llevas una propuesta lista en PDF.</p>
+      <p class="lead">Escoge por dónde empezar. Al final te llevas tu propuesta en PDF.</p>
     </div>
 
     <div class="rutas">
       <button class="ruta" type="button" data-elegir="web">
-        <figure><img src="assets/portada-web.jpg" alt="Un celular mostrando una página web moderna" width="1536" height="1024" loading="eager" decoding="async"></figure>
+        <figure><img src="assets/portada-web.jpg" alt="Un celular bañado en luz violeta y cian" width="1536" height="1024" loading="eager" decoding="async"></figure>
         <div class="cuerpo">
-          <span class="kicker">Ruta 1</span>
+          <span class="kicker">Hacia afuera</span>
           <h2>Página Web</h2>
-          <p>Para que la gente te encuentre, entienda qué haces y te escriba. Tu cara profesional en internet.</p>
-          <ul>
-            <li>Te buscan en Google y no apareces</li>
-            <li>Solo tienes redes sociales</li>
-            <li>Quieres verte más serio y confiable</li>
-          </ul>
-          <span class="go">Empezar por aquí <i>→</i></span>
+          <p>Para que te encuentren, te entiendan y te escriban.</p>
+          <span class="go">Empezar aquí <i>→</i></span>
         </div>
       </button>
 
       <button class="ruta" type="button" data-elegir="sistema">
-        <figure><img src="assets/portada-sistema.jpg" alt="Un computador mostrando un panel administrativo con tablas y gráficas" width="1536" height="1024" loading="eager" decoding="async"></figure>
+        <figure><img src="assets/portada-sistema.jpg" alt="Un computador portátil bañado en luz cian y violeta" width="1536" height="1024" loading="eager" decoding="async"></figure>
         <div class="cuerpo">
-          <span class="kicker">Ruta 2</span>
+          <span class="kicker">Hacia adentro</span>
           <h2>Sistema Administrativo</h2>
-          <p>Para ordenar clientes, cobros, deudas y cuentas en un solo lugar. El reemplazo del Excel y del cuaderno.</p>
-          <ul>
-            <li>Llevas las cuentas en Excel o en papel</li>
-            <li>No sabes con certeza cuánto te deben</li>
-            <li>Cada cierre de mes es un dolor de cabeza</li>
-          </ul>
-          <span class="go">Empezar por aquí <i>→</i></span>
+          <p>Para ordenar clientes, cobros y cuentas. El reemplazo del Excel.</p>
+          <span class="go">Empezar aquí <i>→</i></span>
         </div>
       </button>
     </div>
 
     <div class="pt-pie">
       <details>
-        <summary>No estoy seguro, ¿cuál es la diferencia?</summary>
+        <summary>¿Cuál es la diferencia?</summary>
         <div class="pt-dif">
           <div>
-            <b>La página web mira hacia afuera</b>
-            <p>Es lo que ven tus clientes. Sirve para que te encuentren, sepan qué ofreces y te contacten.
-            No guarda tu información interna.</p>
+            <b>La página mira hacia afuera</b>
+            <p>Es lo que ven tus clientes: quién eres, qué ofreces y cómo contactarte.</p>
           </div>
           <div>
             <b>El sistema mira hacia adentro</b>
-            <p>Lo usas tú y tu equipo, con usuario y contraseña. Guarda clientes, dinero, deudas y
-            movimientos, y te muestra cómo va el negocio.</p>
+            <p>Lo usas tú, con contraseña. Guarda clientes, dinero y deudas, y te dice cómo va el negocio.</p>
           </div>
           <div style="grid-column:1/-1">
-            <b>Muchos negocios necesitan las dos, pero no al mismo tiempo</b>
-            <p>Si todavía nadie te conoce, empieza por la página. Si ya tienes clientes y el desorden
-            te está costando plata, empieza por el sistema. Escoge una y en la conversación vemos si
-            vale la pena la otra.</p>
+            <b>¿No sabes cuál?</b>
+            <p>Si todavía nadie te conoce, empieza por la página. Si el desorden ya te está costando
+            plata, empieza por el sistema.</p>
           </div>
         </div>
       </details>
@@ -562,34 +571,30 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
     <div data-solo="web">
       <span class="eyebrow rv">Páginas web a medida <b>·</b> Colombia</span>
       <h1 class="rv">Tu negocio en internet,<br><span class="rotator"><span id="rotWeb">como se merece.</span></span></h1>
-      <p class="lead rv">Una página hecha a la medida de lo que haces: para que te encuentren,
-      para que te vean profesional y para que te escriban sin tener que rogarlo.</p>
+      <p class="lead rv">Hecha a mano para lo que haces. Sin plantillas.</p>
       <div class="hero-cta rv">
-        <a class="btn btn--main" href="#configurador">Diseña tu página en 1 minuto →</a>
-        <a class="btn btn--ghost" href="#trabajos">Ver lo que ya funciona</a>
+        <a class="btn btn--main" href="#configurador">Diseña tu página →</a>
+        <a class="btn btn--ghost" href="#trabajos">Ver mi trabajo</a>
       </div>
-      <p class="hero-note rv"><strong>Esto que estás viendo es un ejemplo de mi trabajo.</strong>
-      No es una plantilla ni un PDF: es una página hecha a mano. Ábrela en tu celular y verás que se ve igual de bien.</p>
+      <p class="hero-note rv">Esta página que estás viendo es mi trabajo. Ábrela en tu celular.</p>
     </div>
 
     <div data-solo="sistema">
       <span class="eyebrow rv">Sistemas administrativos a medida <b>·</b> Colombia</span>
       <h1 class="rv">Tus cuentas en orden,<br><span class="rotator"><span id="rotSis">sin pelear con Excel.</span></span></h1>
-      <p class="lead rv">Un sistema hecho para tu negocio: clientes, ingresos, egresos, deudas y reportes
-      en un solo lugar, con usuario y contraseña, y disponible desde el celular.</p>
+      <p class="lead rv">Clientes, dinero y deudas en un solo lugar. Con contraseña.</p>
       <div class="hero-cta rv">
-        <a class="btn btn--main" href="#configurador">Diseña tu sistema en 1 minuto →</a>
+        <a class="btn btn--main" href="#configurador">Diseña tu sistema →</a>
         <a class="btn btn--ghost" href="#trabajos">Ver uno funcionando</a>
       </div>
-      <p class="hero-note rv"><strong>Ya construí uno y está en uso real todos los días.</strong>
-      No es una demostración: es un sistema que reemplazó cuadernos y hojas de cálculo en una organización de verdad.</p>
+      <p class="hero-note rv">Ya construí uno. Está en uso real todos los días.</p>
     </div>
 
     <div class="stats rv">
-      <div class="stat"><b data-count="4">4</b><small>proyectos en uso real,<br>no maquetas</small></div>
-      <div class="stat"><b data-count="365">365</b><small>lecciones publicadas en<br>una plataforma propia</small></div>
-      <div class="stat"><b data-count="100" data-suffix="%">100%</b><small>funciona en celular,<br>tablet y computador</small></div>
-      <div class="stat"><b data-count="0">0</b><small>plantillas compradas:<br>todo hecho desde cero</small></div>
+      <div class="stat"><b data-count="4">4</b><small>proyectos en uso real</small></div>
+      <div class="stat"><b data-count="365">365</b><small>lecciones publicadas</small></div>
+      <div class="stat"><b data-count="100" data-suffix="%">100%</b><small>funciona en celular</small></div>
+      <div class="stat"><b data-count="0">0</b><small>plantillas: todo desde cero</small></div>
     </div>
   </div>
 </section>
@@ -598,55 +603,47 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
 <section id="por-que">
   <div class="wrap">
     <div class="sec-head rv" data-solo="web">
-      <span class="eyebrow">Por dónde empezar</span>
-      <h2>Casi siempre, el problema es <span class="grad">uno de estos tres</span>.</h2>
-      <p class="lead">No necesitas “tecnología”. Necesitas resolver algo concreto. Mira si te suena alguno:</p>
+      <span class="eyebrow">El problema</span>
+      <h2>Casi siempre es <span class="grad">uno de estos tres</span>.</h2>
     </div>
     <div class="sec-head rv" data-solo="sistema">
-      <span class="eyebrow">Por dónde empezar</span>
-      <h2>El Excel aguanta, <span class="grad">hasta que deja de aguantar</span>.</h2>
-      <p class="lead">Al principio alcanza con una hoja de cálculo. El problema llega después, y casi siempre así:</p>
+      <span class="eyebrow">El problema</span>
+      <h2>El Excel aguanta, <span class="grad">hasta que no</span>.</h2>
     </div>
 
     <div class="cards c3" data-solo="web">
       <div class="card rv">
         <div class="ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg></div>
-        <h3>Te buscan y no te encuentran</h3>
-        <p>La gente pregunta “¿tienes página?” y toca mandar capturas de pantalla. Una web propia te da un
-        lugar serio donde mostrar lo que haces, a cualquier hora.</p>
+        <h3>Te buscan y no apareces</h3>
+        <p>Hoy toca mandar capturas de pantalla.</p>
       </div>
       <div class="card rv">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l2.4 5.6 6 .5-4.6 4 1.4 5.9L12 16l-5.2 3 1.4-5.9-4.6-4 6-.5z"/></svg></div>
-        <h3>No transmites lo que vales</h3>
-        <p>Haces un trabajo bueno, pero por fuera te ves igual que cualquiera. El diseño no es adorno:
-        es lo que hace que alguien confíe antes de conocerte.</p>
+        <h3>No se ve lo que vales</h3>
+        <p>Trabajas bien, pero por fuera te ves igual que cualquiera.</p>
       </div>
       <div class="card rv">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
-        <h3>Las consultas se pierden</h3>
-        <p>Preguntan por Instagram, por WhatsApp, por llamada, y algunas se quedan sin responder.
-        Una página ordena por dónde te contactan y qué te preguntan.</p>
+        <h3>Se pierden consultas</h3>
+        <p>Llegan por tres lados y algunas quedan sin responder.</p>
       </div>
     </div>
 
     <div class="cards c3" data-solo="sistema">
       <div class="card rv">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 9v12"/></svg></div>
-        <h3>El archivo crece y se rompe</h3>
-        <p>Fórmulas que nadie recuerda, pestañas duplicadas, una celda mal pegada y las cuentas
-        dejan de cuadrar. Y no hay forma de saber quién cambió qué.</p>
+        <h3>El archivo se rompe</h3>
+        <p>Una celda mal pegada y las cuentas dejan de cuadrar.</p>
       </div>
       <div class="card rv">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
         <h3>No sabes cuánto te deben</h3>
-        <p>Los abonos quedan en el chat, en un papel o en la memoria. Sin un lugar donde se registren,
-        la cartera se vuelve un cálculo aproximado en vez de un dato.</p>
+        <p>Los abonos quedan en el chat o en la memoria.</p>
       </div>
       <div class="card rv">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></div>
-        <h3>Cerrar el mes te cuesta un día entero</h3>
-        <p>Sumar, revisar, cruzar y volver a sumar. Un sistema te da ese número al instante,
-        y además te dice cómo vas comparado con el mes pasado.</p>
+        <h3>Cerrar el mes cuesta un día</h3>
+        <p>Sumar, cruzar y volver a sumar. Cada mes.</p>
       </div>
     </div>
   </div>
@@ -658,14 +655,12 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
     <div class="sec-head rv" data-solo="web">
       <span class="eyebrow">Qué puedo crear</span>
       <h2>Tres caminos. <span class="grad">Uno es el tuyo.</span></h2>
-      <p class="lead">No vendo paquetes cerrados: esto es un punto de partida para conversar.
-      Más abajo armas tu propia combinación.</p>
+      <p class="lead">Un punto de partida, no un paquete cerrado.</p>
     </div>
     <div class="sec-head rv" data-solo="sistema">
       <span class="eyebrow">Qué puedo construir</span>
       <h2>Se construye <span class="grad">por etapas.</span></h2>
-      <p class="lead">Nunca de golpe. Empezamos por lo que más te duele hoy, lo pones a funcionar,
-      y desde ahí crece. Así ves resultados desde la primera entrega.</p>
+      <p class="lead">Nunca de golpe. Empezamos por lo que más te duele hoy.</p>
     </div>
 
     <!-- niveles de página web -->
@@ -676,10 +671,10 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
           <div class="mk-col"><i class="w1"></i><i class="w2"></i><i class="w3"></i><div class="mk-row"><i></i><i></i></div></div>
         </div>
         <span class="num">Nivel 1</span><h3>Presencia</h3>
-        <p>Para que existas en internet con una imagen profesional y la gente sepa quién eres y cómo contactarte.</p>
-        <ul><li>Página que se ve bien en celular</li><li>Tus servicios y tu historia, claros</li>
-          <li>Botón de WhatsApp directo</li><li>Publicación y puesta en línea</li></ul>
-        <p class="foot">Ideal si hoy solo tienes redes sociales.</p>
+        <p>Existir en internet con buena cara.</p>
+        <ul><li>Se ve bien en celular</li><li>Tus servicios, claros</li>
+          <li>Botón de WhatsApp</li><li>Publicada y en línea</li></ul>
+        <p class="foot">Si hoy solo tienes redes sociales.</p>
       </article>
       <article class="tier tier--hot rv">
         <span class="tag">La más pedida</span>
@@ -687,11 +682,10 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
           <div class="mk-col"><div class="mk-pill"></div><i class="w3"></i><i class="w1"></i><div class="mk-row"><i></i><i></i><i></i></div><i class="w2"></i></div>
         </div>
         <span class="num">Nivel 2</span><h3>Profesional</h3>
-        <p>Para negocios que ya tienen clientes y quieren comunicar mejor, verse serios y recibir más consultas.</p>
-        <ul><li>Diseño propio, con tus colores</li><li>Más secciones y contenido con intención</li>
-          <li>Formulario o agenda de contacto</li><li>Preparada para aparecer en Google</li>
-          <li>Catálogo, galería y testimonios</li></ul>
-        <p class="foot">El punto medio entre imagen y resultados.</p>
+        <p>Que la página trabaje por ti.</p>
+        <ul><li>Diseño propio, tus colores</li><li>Formulario o agenda</li>
+          <li>Lista para Google</li><li>Catálogo y testimonios</li></ul>
+        <p class="foot">Entre imagen y resultados.</p>
       </article>
       <article class="tier rv">
         <div class="mk" aria-hidden="true">
@@ -702,11 +696,10 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
           </div>
         </div>
         <span class="num">Nivel 3</span><h3>Web con panel</h3>
-        <p>Cuando la página además necesita guardar información: reservas, usuarios registrados o contenido que tú administras.</p>
+        <p>Cuando además tiene que guardar datos.</p>
         <ul><li>Panel privado para administrar</li><li>Usuarios con contraseña</li>
-          <li>Formularios que guardan datos</li><li>Integraciones según la necesidad</li>
-          <li>Se entrega por etapas</li></ul>
-        <p class="foot">La frontera entre página y sistema.</p>
+          <li>Reservas o formularios que guardan</li><li>Entrega por etapas</li></ul>
+        <p class="foot">La frontera con el sistema.</p>
       </article>
     </div>
 
@@ -717,11 +710,10 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
           <div class="mk-col"><div class="mk-pill"></div><div class="mk-grid"><i></i><i></i><i></i></div><i class="w3"></i><i class="w1"></i><i class="w2"></i></div>
         </div>
         <span class="num">Etapa 1</span><h3>Cuentas ordenadas</h3>
-        <p>El reemplazo directo del Excel: registrar lo que entra, lo que sale y a quién le vendiste, sin fórmulas que se rompan.</p>
-        <ul><li>Ingresos y egresos con su detalle</li><li>Registro de clientes</li>
-          <li>Totales y cierre del mes automáticos</li><li>Funciona en celular y computador</li>
-          <li>Un solo usuario</li></ul>
-        <p class="foot">Lo mínimo para dejar de perder plata por desorden.</p>
+        <p>El reemplazo directo del Excel.</p>
+        <ul><li>Ingresos y egresos</li><li>Registro de clientes</li>
+          <li>Cierre del mes automático</li><li>Celular y computador</li></ul>
+        <p class="foot">Lo mínimo para dejar de perder plata.</p>
       </article>
       <article class="tier tier--hot rv">
         <span class="tag">Lo más común</span>
@@ -733,11 +725,11 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
           </div>
         </div>
         <span class="num">Etapa 2</span><h3>Sistema con módulos</h3>
-        <p>Cuando ya no basta con registrar: hay que controlar deudas, inventario o citas, y varias personas usan el sistema.</p>
-        <ul><li>Cartera: quién te debe y desde cuándo</li><li>Abonos y pagos por cuotas</li>
-          <li>Inventario o agenda de citas</li><li>Varios usuarios con permisos distintos</li>
-          <li>Reportes y gráficas del negocio</li></ul>
-        <p class="foot">El punto donde el sistema empieza a ahorrarte días.</p>
+        <p>Cuando hay que controlar, no solo registrar.</p>
+        <ul><li>Cartera: quién te debe</li><li>Abonos y cuotas</li>
+          <li>Inventario o citas</li><li>Varios usuarios con permisos</li>
+          <li>Reportes y gráficas</li></ul>
+        <p class="foot">Aquí empieza a ahorrarte días.</p>
       </article>
       <article class="tier rv">
         <div class="mk" aria-hidden="true">
@@ -748,11 +740,11 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
           </div>
         </div>
         <span class="num">Etapa 3</span><h3>Sistema completo</h3>
-        <p>La operación entera adentro: periodos, liquidaciones, historial de cambios y reportes para tomar decisiones.</p>
-        <ul><li>Todos los módulos conectados</li><li>Liquidaciones y cierres por periodo</li>
-          <li>Historial de quién cambió qué</li><li>Respaldos y control de accesos</li>
-          <li>Entrega por etapas, mes a mes</li></ul>
-        <p class="foot">Es exactamente lo que ya construí y mantengo.</p>
+        <p>La operación entera adentro.</p>
+        <ul><li>Todos los módulos conectados</li><li>Liquidaciones y cierres</li>
+          <li>Historial de quién cambió qué</li><li>Respaldos y accesos</li>
+          <li>Entrega mes a mes</li></ul>
+        <p class="foot">Exactamente lo que ya construí.</p>
       </article>
     </div>
   </div>
@@ -762,38 +754,34 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
 <section id="trabajos">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="eyebrow">Lo que ya funciona</span>
+      <span class="eyebrow">Mi trabajo</span>
       <h2>No son ejercicios. <span class="grad">Están en uso.</span></h2>
-      <p class="lead">Sistemas que uso y mantengo todos los días para una organización real.
-      Puedo mostrarte cualquiera de ellos en vivo, en una llamada, cuando quieras.</p>
+      <p class="lead">Puedo mostrarte cualquiera en vivo, en una llamada.</p>
     </div>
     <figure class="banda rv">
       <img src="assets/trabajos.jpg" alt="Paneles de interfaz superpuestos con luz violeta y cian" width="1536" height="1024" loading="lazy" decoding="async">
-      <figcaption>Cuatro proyectos en producción · mantenidos y actualizados por mí</figcaption>
+      <figcaption>Cuatro proyectos en producción · mantenidos por mí</figcaption>
     </figure>
     <div class="cards c2">
       <article class="work rv">
         <div class="top"><h3>Sistema administrativo completo</h3><span class="chip">En uso real</span></div>
-        <p>Personas, pagos, cartera pendiente, egresos, liquidaciones y reportes en un solo lugar.
-        Reemplazó cuadernos y hojas de cálculo sueltas.</p>
-        <p class="meta">Funcionando desde marzo de 2026 · con usuarios y permisos por rol</p>
+        <p>Personas, pagos, cartera, egresos y reportes en un solo lugar. Reemplazó cuadernos y hojas de cálculo.</p>
+        <p class="meta">Desde marzo de 2026 · con permisos por rol</p>
       </article>
       <article class="work rv">
         <div class="top"><h3>Plataforma de juegos educativos</h3><span class="chip">En línea</span></div>
-        <p>Cuatro juegos con ingreso seguro, avances guardados por persona y puntajes.
-        Pensada para que la use un niño sin ayuda.</p>
-        <p class="meta">Publicada en internet · <a class="lnk" href="https://juegos-gemb.vercel.app" target="_blank" rel="noopener">ver la plataforma ↗</a></p>
+        <p>Cuatro juegos con ingreso seguro y avances guardados. Pensada para que la use un niño sin ayuda.</p>
+        <p class="meta"><a class="lnk" href="https://juegos-gemb.vercel.app" target="_blank" rel="noopener">ver la plataforma ↗</a></p>
       </article>
       <article class="work rv">
-        <div class="top"><h3>Plataforma de formación de 365 lecciones</h3><span class="chip chip--n">Plataforma propia</span></div>
-        <p>Una lección por día, con video, seguimiento del avance de cada persona y administración de contenidos.</p>
-        <p class="meta">Contenido protegido · panel de administración propio</p>
+        <div class="top"><h3>Plataforma de 365 lecciones</h3><span class="chip chip--n">Plataforma propia</span></div>
+        <p>Una lección por día, con video y seguimiento del avance de cada persona.</p>
+        <p class="meta">Contenido protegido · panel propio</p>
       </article>
       <article class="work rv">
-        <div class="top"><h3>Agenda compartida con recordatorios</h3><span class="chip chip--n">Instalable</span></div>
-        <p>Agendas que se comparten por invitación, se instala en el celular como una aplicación
-        y avisa antes de cada compromiso.</p>
-        <p class="meta">Funciona en celular y computador · con invitaciones</p>
+        <div class="top"><h3>Agenda con recordatorios</h3><span class="chip chip--n">Instalable</span></div>
+        <p>Se comparte por invitación, se instala en el celular y avisa antes de cada compromiso.</p>
+        <p class="meta">Celular y computador</p>
       </article>
     </div>
   </div>
@@ -806,10 +794,8 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
       <span class="eyebrow">Diseña tu solución <b>·</b> 1 minuto</span>
       <h2 data-solo="web">¿No sabes qué necesitas? <span class="grad">Descubrámoslo juntos.</span></h2>
       <h2 data-solo="sistema">¿No sabes por dónde empezar? <span class="grad">Armémoslo juntos.</span></h2>
-      <p class="lead" data-solo="web">Responde lo que quieras (nada es obligatorio) y verás cómo se vería tu negocio.
-      Al final te llevas la propuesta en PDF y me la puedes enviar por WhatsApp.</p>
-      <p class="lead" data-solo="sistema">Responde lo que quieras (nada es obligatorio) y verás cómo se vería tu panel.
-      Al final te llevas la propuesta en PDF y me la puedes enviar por WhatsApp.</p>
+      <p class="lead" data-solo="web">Nada es obligatorio. Mira cómo se vería tu negocio y llévate el PDF.</p>
+      <p class="lead" data-solo="sistema">Nada es obligatorio. Mira cómo se vería tu panel y llévate el PDF.</p>
     </div>
 
     <div class="builder rv">
@@ -922,10 +908,8 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
                 <span class="copied" id="copiado">¡Listo, copiado!</span>
               </div>
               <p class="disc">
-                El PDF se genera en tu propio dispositivo: al tocar el botón se abre la ventana de impresión
-                y eliges <strong>“Guardar como PDF”</strong>. Puedes imprimirlo, guardarlo o enviármelo.
-                El rango es una referencia, no una cotización final: el precio real depende del alcance que
-                acordemos juntos. El dominio queda a tu nombre; la publicación y el soporte mensual se cotizan aparte.
+                Al tocar el botón se abre la ventana de impresión: elige <strong>“Guardar como PDF”</strong>.
+                El rango es una referencia, no una cotización final. Publicación y soporte se cotizan aparte.
               </p>
             </div>
           </div>
@@ -993,26 +977,21 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">Cómo trabajamos</span>
-      <h2>Tres pasos, sin sorpresas <span class="grad">y sin palabras raras.</span></h2>
+      <h2>Tres pasos, <span class="grad">sin palabras raras.</span></h2>
     </div>
     <div class="steps">
       <div class="step rv"><b class="k">01</b><h3>Conversamos</h3>
-        <p>Me cuentas qué necesitas y para qué. Te digo con franqueza qué conviene, qué no vale la pena
-        y cuánto costaría. Sin compromiso.</p></div>
+        <p>Me cuentas qué necesitas. Te digo con franqueza qué conviene y cuánto vale. Sin compromiso.</p></div>
       <div class="step rv"><b class="k">02</b><h3>Construimos</h3>
-        <p>Trabajo por partes y te muestro avances. Tú revisas y pides ajustes antes de publicar,
-        no después. Nada se publica sin tu visto bueno.</p></div>
+        <p>Ves avances por partes. Nada se publica sin tu visto bueno.</p></div>
       <div class="step rv"><b class="k">03</b><h3>Entregamos</h3>
-        <p>Lo dejo funcionando, te explico cómo usarlo en palabras sencillas
-        y queda con garantía por escrito.</p></div>
+        <p>Funcionando, explicado en palabras sencillas y con garantía por escrito.</p></div>
     </div>
     <div class="split">
       <div class="note rv"><h4><span>Garantía</span> — incluida</h4>
-        <p>Durante los primeros 30 días después de entregar, si algo de lo acordado no funciona bien,
-        lo corrijo sin cobrarte. Eso es garantía.</p></div>
-      <div class="note rv"><h4><span>Mantenimiento</span> — opcional, mensual</h4>
-        <p>Es distinto: es el acompañamiento continuo (revisiones, respaldos, cambios pequeños,
-        mantener todo publicado). Se cobra aparte y tú decides si lo quieres.</p></div>
+        <p>30 días. Si algo de lo acordado falla, lo corrijo sin cobrarte.</p></div>
+      <div class="note rv"><h4><span>Mantenimiento</span> — opcional</h4>
+        <p>Es otra cosa: acompañamiento mensual, respaldos y cambios pequeños. Se cobra aparte y tú decides.</p></div>
     </div>
   </div>
 </section>
@@ -1026,40 +1005,37 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
     </div>
     <div class="rv">
       <details class="faq" data-solo="web"><summary>¿La página queda a mi nombre?</summary>
-        <p>Sí. El dominio (por ejemplo <em>tunegocio.com</em>) se registra a tu nombre y es tuyo, aunque yo
-        me encargue de la parte técnica. Si algún día quieres irte con otra persona, te llevas todo.</p></details>
+        <p>Sí. El dominio se registra a tu nombre y es tuyo, aunque yo maneje la parte técnica.
+        Si un día quieres irte con otra persona, te llevas todo.</p></details>
 
       <details class="faq" data-solo="sistema"><summary>¿Esto reemplaza a mi contador?</summary>
-        <p><strong>No, y es importante que lo sepas.</strong> Esto es un sistema <em>administrativo</em>:
-        organiza tu operación, tus clientes, tus cobros y tus movimientos. La contabilidad legal, los
-        impuestos y lo que se le reporta a la DIAN los sigue manejando tu contador. Lo que sí hace es
-        entregarle información ordenada y confiable, en vez de un Excel improvisado.</p></details>
+        <p><strong>No.</strong> Esto organiza tu operación: clientes, cobros y movimientos.
+        Los impuestos y lo que se le reporta a la DIAN los sigue manejando tu contador.
+        Lo que sí hace es entregarle información ordenada en vez de un Excel improvisado.</p></details>
 
-      <details class="faq" data-solo="sistema"><summary>¿Y todo lo que ya tengo en Excel se pierde?</summary>
-        <p>No. Lo que esté en una hoja de cálculo se puede pasar al sistema al inicio, para que no
-        empieces de cero. Eso se define en la conversación, porque depende de qué tan ordenado esté.</p></details>
+      <details class="faq" data-solo="sistema"><summary>¿Se pierde lo que tengo en Excel?</summary>
+        <p>No. Lo que esté en una hoja de cálculo se puede pasar al sistema al inicio,
+        para que no empieces de cero.</p></details>
 
-      <details class="faq" data-solo="sistema"><summary>¿Dónde quedan guardados los datos?</summary>
-        <p>En la nube, con respaldo, y solo entran las personas que tú autorices con su usuario y
-        contraseña. No queda en un computador que se puede daño o perder.</p></details>
+      <details class="faq" data-solo="sistema"><summary>¿Dónde quedan los datos?</summary>
+        <p>En la nube, con respaldo. Solo entran las personas que tú autorices con su contraseña.
+        No queda en un computador que se pueda dañar o perder.</p></details>
 
       <details class="faq"><summary>¿Cuánto se demora?</summary>
-        <p>Una página sencilla, entre una y dos semanas desde que tenga tus textos y fotos.
-        Una más completa, entre dos y cuatro. Un sistema se entrega por etapas, y la primera etapa
-        suele estar lista en pocas semanas.</p></details>
+        <p>Una página sencilla, una o dos semanas desde que tenga tus textos y fotos. Una más completa,
+        de dos a cuatro. Un sistema va por etapas, y la primera suele estar lista en pocas semanas.</p></details>
 
       <details class="faq"><summary>¿Cómo se paga?</summary>
-        <p>La mitad al empezar y la mitad al entregar. Si es un sistema por etapas, se paga por etapa,
-        para que nunca pagues por algo que todavía no has visto funcionando.</p></details>
+        <p>Mitad al empezar, mitad al entregar. Si va por etapas, se paga por etapa: nunca pagas
+        por algo que no has visto funcionando.</p></details>
 
       <details class="faq"><summary>¿Y si después quiero cambios?</summary>
         <p>Los ajustes de lo acordado entran en la garantía. Las funciones nuevas se cotizan aparte,
-        siempre diciéndote el precio antes de hacer nada.</p></details>
+        siempre con el precio por delante.</p></details>
 
       <details class="faq"><summary>¿Hay costos mensuales?</summary>
-        <p>Sí, y te los digo desde el principio: el dominio se renueva una vez al año y la publicación
-        (el “espacio” donde vive todo) puede tener un costo mensual según lo que necesites.
-        Son valores bajos, pero prefiero que los sepas antes y no después.</p></details>
+        <p>Sí, y te los digo desde el principio: el dominio se renueva cada año y la publicación puede
+        tener un costo mensual. Son valores bajos, pero prefiero que los sepas antes.</p></details>
     </div>
   </div>
 </section>
@@ -1070,8 +1046,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
     <div class="close-box rv">
       <span class="eyebrow">Siguiente paso</span>
       <h2 style="margin-top:16px">Cuéntame tu idea.<br><span class="grad">El resto lo armo yo.</span></h2>
-      <p class="lead">Sin compromiso y sin tecnicismos. Si veo que lo que necesitas no vale la pena hacerlo,
-      te lo digo de frente. Prefiero eso a venderte algo que no vas a usar.</p>
+      <p class="lead">Si no vale la pena hacerlo, te lo digo de frente. Prefiero eso a venderte algo que no vas a usar.</p>
       <div class="hero-cta">
         <a class="btn btn--main" href="#configurador">Diseña tu solución →</a>
         <a class="btn btn--wa" id="waDirecto" href="#" target="_blank" rel="noopener">Escribirme por WhatsApp</a>
@@ -1149,8 +1124,7 @@ const CONFIG = {
   marca    : "Mi Página",
   // Tu WhatsApp con indicativo de país, sin +, sin espacios, sin guiones.
   // Colombia = 57. Debe quedar así: "57" seguido de tus 10 dígitos.
-  // Mientras diga XXXXXXXXXX, los botones abren el correo en vez de WhatsApp.
-  whatsapp : "57XXXXXXXXXX",
+  whatsapp : "573508524481",
   correo   : "fundacionsocial@gimnasioemocionalmb.com",
 
   // ---- Rangos de PÁGINA WEB ----
@@ -1399,11 +1373,55 @@ function ponerModo(modo, mover){
 $$('[data-elegir]').forEach(b=>{
   b.addEventListener("click", ()=>{
     const m = b.getAttribute("data-elegir");
-    const cambio = ST.modo && ST.modo !== m;
-    if(cambio){ ST.presupuesto = ""; }
-    ponerModo(m, true);
+    if(ST.modo && ST.modo !== m) ST.presupuesto = "";
+    const desdePortada = ST.modo === "";
+    if(desdePortada && !reduce){
+      // salida suave de la portada antes de mostrar la página
+      const pt = $("#portada");
+      pt.classList.add("saliendo");
+      document.body.classList.add("entrando");
+      setTimeout(()=>{
+        ponerModo(m, true);
+        pt.classList.remove("saliendo");
+        setTimeout(()=>document.body.classList.remove("entrando"), 700);
+      }, 400);
+    } else {
+      ponerModo(m, true);
+    }
   });
 });
+
+/* ---- luz que sigue al cursor y tarjetas con inclinación ---- */
+(function(){
+  if(reduce || !window.matchMedia("(hover:hover) and (pointer:fine)").matches) return;
+  let pend = false, px = 0, py = 0;
+  window.addEventListener("mousemove", e=>{
+    px = e.clientX; py = e.clientY;
+    document.body.classList.add("mouse");
+    if(pend) return;
+    pend = true;
+    requestAnimationFrame(()=>{
+      const s = document.documentElement.style;
+      s.setProperty("--mx", (px/window.innerWidth*100).toFixed(2) + "%");
+      s.setProperty("--my", (py/window.innerHeight*100).toFixed(2) + "%");
+      pend = false;
+    });
+  }, { passive:true });
+
+  $$(".ruta").forEach(card=>{
+    card.addEventListener("mousemove", e=>{
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left)/r.width - .5;
+      const y = (e.clientY - r.top)/r.height - .5;
+      card.style.setProperty("--ry", (x*7).toFixed(2) + "deg");
+      card.style.setProperty("--rx", (-y*5).toFixed(2) + "deg");
+    });
+    card.addEventListener("mouseleave", ()=>{
+      card.style.setProperty("--ry","0deg");
+      card.style.setProperty("--rx","0deg");
+    });
+  });
+})();
 
 /* ============================================================
    7. TÍTULOS ROTATIVOS
