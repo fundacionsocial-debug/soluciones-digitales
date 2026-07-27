@@ -130,10 +130,14 @@ body.entrando header,body.entrando main{animation:entra .6s cubic-bezier(.2,.8,.
   .ruta figure{aspect-ratio:16/10}
   .ruta .cuerpo{margin-top:-22px}
   .ruta h2{font-size:clamp(24px,6.4vw,30px)}
+  .ruta .kicker{font-size:11.5px}
 }
 .pt-pie{text-align:center;margin-top:28px}
-.pt-pie summary{display:inline-flex;cursor:pointer;color:var(--ink-2);font-size:14.5px;
-  border-bottom:1px dashed var(--line-2);padding-bottom:2px;list-style:none}
+/* zona táctil cómoda (44 px) sin que parezca un botón */
+.pt-pie summary{display:inline-flex;align-items:center;justify-content:center;cursor:pointer;
+  color:var(--ink-2);font-size:15px;min-height:44px;padding:0 18px;border-radius:999px;list-style:none}
+.pt-pie summary:hover{color:var(--ink);background:var(--card)}
+.pt-pie summary span{border-bottom:1px dashed var(--line-2);padding-bottom:2px}
 .pt-pie summary::-webkit-details-marker{display:none}
 .pt-pie details[open] summary{color:var(--ink)}
 .pt-dif{max-width:820px;margin:22px auto 0;text-align:left;display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -460,8 +464,9 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
   .hj-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16pt;
     border-bottom:2pt solid #111;padding-bottom:8pt;margin-bottom:16pt}
   .hj-marca{display:flex;align-items:center;gap:8pt;font-weight:800;font-size:14pt;letter-spacing:-.02em}
-  .hj-marca span{width:22pt;height:22pt;border-radius:6pt;background:#111;color:#fff;
-    display:grid;place-items:center;font-size:11pt}
+  /* el color va con !important porque `#hoja *` tiene más peso que esta clase */
+  .hj-marca span{width:22pt;height:22pt;border-radius:6pt;background:#111;color:#fff!important;
+    display:grid;place-items:center;font-size:11pt;line-height:1}
   .hj-top small{font-size:8.5pt;color:#555!important;text-align:right;line-height:1.4;display:block}
   #hoja h1{font-size:19pt;letter-spacing:-.02em;margin:0 0 6pt;line-height:1.15}
   #hoja h2{font-size:10pt;letter-spacing:.14em;text-transform:uppercase;color:#666!important;
@@ -473,6 +478,8 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
   .hj-box .hj-lvl{font-size:8.5pt;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#555!important}
   .hj-box .hj-money{font-size:20pt;font-weight:800;letter-spacing:-.03em;margin:2pt 0 3pt}
   .hj-box p{font-size:9pt;color:#444!important}
+  .hj-aviso{display:none;margin-top:7pt;padding-top:6pt;border-top:.6pt solid #bbb}
+  .hj-aviso.on{display:block}
   .hj-dl{display:grid;grid-template-columns:34% 66%;gap:0;font-size:10.5pt}
   .hj-dl dt{font-weight:700;padding:4.5pt 0;border-top:.6pt solid #e2e2e2}
   .hj-dl dd{margin:0;padding:4.5pt 0;border-top:.6pt solid #e2e2e2;color:#333!important}
@@ -530,7 +537,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
 
     <div class="pt-pie">
       <details>
-        <summary>¿Cuál es la diferencia?</summary>
+        <summary><span>¿Cuál es la diferencia?</span></summary>
         <div class="pt-dif">
           <div>
             <b>La página mira hacia afuera</b>
@@ -1081,6 +1088,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
     <div class="hj-lvl" id="hjLvl"></div>
     <div class="hj-money" id="hjMoney"></div>
     <p id="hjMoneyNota"></p>
+    <p class="hj-aviso" id="hjAviso"></p>
   </div>
 
   <h2>Datos del interesado</h2>
@@ -1705,6 +1713,17 @@ function resumenTexto(){
   return L.join("\n");
 }
 
+/* Aviso cuando el presupuesto marcado queda por debajo del rango sugerido.
+   Se usa igual en la pantalla y en el PDF, para que digan lo mismo. */
+function avisoPresupuesto(){
+  const niv  = nivelDef();
+  const pres = buscar(presuActual(), ST.presupuesto);
+  if(!pres || pres.tope === null || pres.tope >= niv.desde) return "";
+  return "Ojo: el presupuesto indicado (" + pres.label.toLowerCase() + ") queda por debajo de este rango. " +
+         "No es un problema: la propuesta sería empezar por una primera etapa que sí entre en ese presupuesto " +
+         "y crecer por partes.";
+}
+
 /* ============================================================
    14. RESULTADO EN PANTALLA
    ============================================================ */
@@ -1720,14 +1739,9 @@ function mostrarResultado(){
   $("#rPrecioNota").textContent = niv.nota;
 
   const av = $("#rAviso");
-  const pres = buscar(presuActual(), ST.presupuesto);
-  if(pres && pres.tope !== null && pres.tope < niv.desde){
-    av.textContent = "Ojo: marcaste un presupuesto de " + pres.label.toLowerCase() +
-      " y lo que pediste queda por encima de ese rango. No es un problema. Te propondría empezar por una " +
-      "primera etapa que sí entre en tu presupuesto y crecer por partes; en la conversación te digo con " +
-      "franqueza qué conviene dejar para después.";
-    av.classList.add("on");
-  } else { av.textContent = ""; av.classList.remove("on"); }
+  const t = avisoPresupuesto();
+  av.textContent = t;
+  av.classList.toggle("on", !!t);
 
   const filas = lineasResumen();
   $("#rResumen").innerHTML = filas.length
@@ -1765,6 +1779,9 @@ function llenarHoja(){
   $("#hjMoney").textContent = niv.rango;
   $("#hjMoneyNota").textContent = niv.nota +
     " Este rango es una referencia preliminar, no una cotización final.";
+  const avh = $("#hjAviso"), th = avisoPresupuesto();
+  avh.textContent = th;
+  avh.classList.toggle("on", !!th);
 
   const datos = [];
   if(ST.nombre)      datos.push(["Negocio o proyecto", ST.nombre]);
@@ -1773,12 +1790,8 @@ function llenarHoja(){
   if(ST.contacto)    datos.push(["Teléfono o correo", ST.contacto]);
   if(ST.plazo)       datos.push(["Cuándo lo necesita", etiquetas([ST.plazo], PLAZOS)[0]]);
   if(ST.presupuesto) datos.push(["Presupuesto indicado", etiquetas([ST.presupuesto], presuActual())[0]]);
-  if(!esWeb() && ST.hoy)         datos.push(["Cómo lleva hoy las cuentas", etiquetas([ST.hoy], HOY)[0]]);
-  if(!esWeb() && ST.usuarios)    datos.push(["Personas que lo usarán", etiquetas([ST.usuarios], USUARIOS)[0]]);
-  if(!esWeb() && ST.dispositivo){
-    const d = buscar(DISPOSITIVOS, ST.dispositivo);
-    datos.push(["Lo usará desde", d ? d.largo : ""]);
-  }
+  // en la ruta de sistema, cómo lleva las cuentas / usuarios / dispositivo NO van aquí:
+  // ya salen en la columna "La situación de hoy" y quedarían repetidos.
   if(esWeb()){
     const e = buscar(ESTILOS, ST.estilo);
     if(e) datos.push(["Estilo visual preferido", e.label]);
