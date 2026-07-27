@@ -1,6 +1,9 @@
 # Vercel
 .vercel
 
+# PNG originales de las imágenes (pesan 8 MB; en la web se usan los .jpg)
+assets/originales/
+
 # Sistema
 Thumbs.db
 desktop.ini

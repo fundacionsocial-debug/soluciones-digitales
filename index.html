@@ -1,79 +1,60 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Soluciones digitales a medida — Sebastián López</title>
-<meta name="description" content="Páginas web y sistemas hechos a medida para negocios y proyectos. Diseña tu solución en un minuto y recibe una propuesta sin compromiso.">
+<title>Mi Página — Soluciones digitales a medida</title>
+<meta name="description" content="Páginas web y sistemas administrativos hechos a medida. Diseña tu solución en un minuto, mira cómo se vería y llévate una propuesta en PDF.">
 <meta name="theme-color" content="#070b16">
-<meta property="og:title" content="Tu negocio en internet, como se merece">
-<meta property="og:description" content="Diseña tu solución en un minuto y mira cómo se vería tu negocio.">
+<meta property="og:title" content="Tu negocio, resuelto por dentro y por fuera">
+<meta property="og:description" content="Una página web que te haga visible, o un sistema que ordene tus cuentas. Diseña tu solución en un minuto y llévate la propuesta en PDF.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://soluciones-digitales-eosin.vercel.app/assets/og-card.jpg">
+<meta property="og:image:width" content="1536">
+<meta property="og:image:height" content="1024">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://soluciones-digitales-eosin.vercel.app/assets/og-card.jpg">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%237c5cff'/><path d='M28 62l16-26 14 22 6-9 8 13z' fill='%2322d3ee'/></svg>">
 <style>
 /* ============================================================
-   CONFIGURACIÓN VISUAL
+   BASE
    ============================================================ */
 :root{
-  --bg:#070b16;
-  --bg-2:#0b1122;
-  --card:rgba(255,255,255,.038);
-  --card-2:rgba(255,255,255,.06);
-  --line:rgba(255,255,255,.10);
-  --line-2:rgba(255,255,255,.18);
-  --ink:#eaeefc;
-  --ink-2:#a5b0d0;
-  --ink-3:#6f7c9e;
-  --a1:#7c5cff;
-  --a2:#22d3ee;
-  --a3:#ff78c8;
-  --ok:#34d399;
-  --wa:#25d366;
-  --r:18px;
-  --maxw:1180px;
-  --pad:clamp(20px,5vw,44px);
+  --bg:#070b16; --bg-2:#0b1122;
+  --card:rgba(255,255,255,.038); --card-2:rgba(255,255,255,.06);
+  --line:rgba(255,255,255,.10); --line-2:rgba(255,255,255,.18);
+  --ink:#eaeefc; --ink-2:#a5b0d0; --ink-3:#6f7c9e;
+  --a1:#7c5cff; --a2:#22d3ee; --a3:#ff78c8;
+  --ok:#34d399; --wa:#25d366;
+  --r:18px; --maxw:1180px; --pad:clamp(20px,5vw,44px);
+  --hero-img:url("assets/hero.jpg");
   --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  margin:0; background:var(--bg); color:var(--ink); font-family:var(--font);
-  -webkit-font-smoothing:antialiased; line-height:1.6; overflow-x:hidden;
-}
-img,svg{max-width:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);
+  -webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
 a{color:inherit}
 button{font:inherit;color:inherit;cursor:pointer}
 h1,h2,h3,h4{margin:0;line-height:1.08;letter-spacing:-.025em;font-weight:800}
 p{margin:0}
 
-/* fondo animado */
 .aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.aurora i{position:absolute;display:block;border-radius:50%;filter:blur(80px);opacity:.5}
+.aurora i{position:absolute;display:block;border-radius:50%;filter:blur(80px);opacity:.45}
 .aurora i:nth-child(1){width:52vw;height:52vw;left:-12vw;top:-14vw;background:radial-gradient(circle,#7c5cff,transparent 66%);animation:drift 26s ease-in-out infinite}
 .aurora i:nth-child(2){width:44vw;height:44vw;right:-10vw;top:18vh;background:radial-gradient(circle,#22d3ee,transparent 66%);animation:drift 32s ease-in-out infinite reverse}
-.aurora i:nth-child(3){width:40vw;height:40vw;left:24vw;bottom:-14vw;background:radial-gradient(circle,#ff78c8,transparent 66%);opacity:.3;animation:drift 38s ease-in-out infinite}
+.aurora i:nth-child(3){width:40vw;height:40vw;left:24vw;bottom:-14vw;background:radial-gradient(circle,#ff78c8,transparent 66%);opacity:.26;animation:drift 38s ease-in-out infinite}
 @keyframes drift{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(6vw,4vh,0) scale(1.16)}}
 .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;
   background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
   background-size:64px 64px;
   mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%);
-  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%);}
-
-/* progreso de lectura */
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%)}
 #scrollbar{position:fixed;top:0;left:0;height:2px;width:0;z-index:70;background:linear-gradient(90deg,var(--a1),var(--a2))}
 
 .wrap{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
 section{position:relative;z-index:2;padding:clamp(64px,9vw,120px) 0}
-
-/* ---------- barra superior ---------- */
-header{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);background:rgba(7,11,22,.72);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px var(--pad);max-width:var(--maxw);margin:0 auto}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em;text-decoration:none;font-size:15px}
-.brand .mark{width:30px;height:30px;border-radius:9px;flex:0 0 auto;background:linear-gradient(135deg,var(--a1),var(--a2));display:grid;place-items:center;font-size:14px;color:#06080f}
-.nav-links{display:flex;gap:22px;font-size:14px;color:var(--ink-2)}
-.nav-links a{text-decoration:none}
-.nav-links a:hover{color:var(--ink)}
-@media(max-width:900px){.nav-links{display:none}}
 
 /* ---------- botones ---------- */
 .btn{display:inline-flex;align-items:center;gap:9px;border:1px solid transparent;border-radius:999px;
@@ -84,15 +65,16 @@ header{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);background:rg
 .btn--ghost:hover{background:var(--card-2);border-color:var(--ink-3)}
 .btn--wa{background:var(--wa);color:#04150a;box-shadow:0 10px 30px -12px rgba(37,211,102,.9)}
 .btn--wa:hover{transform:translateY(-2px)}
+.btn--pdf{background:#fff;color:#0b1020;box-shadow:0 10px 30px -14px rgba(255,255,255,.6)}
+.btn--pdf:hover{transform:translateY(-2px)}
 .btn--sm{padding:10px 16px;font-size:14px}
-.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--a2);outline-offset:3px}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--a2);outline-offset:3px}
 
-/* ---------- tipografía de secciones ---------- */
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.16em;
   text-transform:uppercase;color:var(--ink-2);border:1px solid var(--line);background:var(--card);
   padding:7px 14px;border-radius:999px}
 .eyebrow b{color:var(--a2)}
-h1{font-size:clamp(34px,6.6vw,68px)}
+h1{font-size:clamp(32px,6.2vw,64px)}
 h2{font-size:clamp(27px,4.4vw,44px)}
 h3{font-size:clamp(19px,2.3vw,23px)}
 .lead{color:var(--ink-2);font-size:clamp(16px,1.9vw,19px);max-width:62ch}
@@ -100,8 +82,70 @@ h3{font-size:clamp(19px,2.3vw,23px)}
 .sec-head h2{margin:16px 0 14px}
 .grad{background:linear-gradient(100deg,var(--a2),var(--a1) 45%,var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent}
 
+/* ============================================================
+   PORTADA — elegir la ruta
+   ============================================================ */
+#portada{min-height:100vh;min-height:100dvh;display:flex;align-items:center;padding:clamp(40px,7vh,80px) 0}
+.pt-head{text-align:center;max-width:740px;margin:0 auto clamp(32px,5vw,52px)}
+.pt-head h1{margin:20px 0 16px}
+.pt-head .lead{margin:0 auto}
+.pt-marca{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:15px;letter-spacing:-.02em}
+.pt-marca .mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--a1),var(--a2));
+  display:grid;place-items:center;font-size:14px;color:#06080f}
+.rutas{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:960px;margin:0 auto}
+@media(max-width:820px){.rutas{grid-template-columns:1fr}}
+.ruta{position:relative;text-align:left;border:1px solid var(--line-2);border-radius:24px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));padding:0;transition:.24s;
+  display:flex;flex-direction:column;width:100%}
+.ruta:hover,.ruta:focus-visible{transform:translateY(-5px);border-color:rgba(124,92,255,.55);
+  box-shadow:0 40px 80px -46px rgba(124,92,255,.95)}
+.ruta figure{margin:0;position:relative;aspect-ratio:3/2;overflow:hidden;background:#0a0f1e}
+.ruta figure img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.ruta:hover figure img{transform:scale(1.05)}
+.ruta figure::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(7,11,22,.92))}
+.ruta .cuerpo{padding:22px 24px 26px}
+.ruta .kicker{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--a2)}
+.ruta h2{font-size:clamp(22px,3vw,29px);margin:9px 0 10px}
+.ruta p{color:var(--ink-2);font-size:15.5px}
+.ruta ul{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:7px}
+.ruta li{font-size:14px;color:var(--ink-3);display:flex;gap:9px}
+.ruta li::before{content:"–";color:var(--a2)}
+.ruta .go{margin-top:20px;display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:15px;color:var(--ink)}
+.ruta .go i{font-style:normal;transition:.2s}
+.ruta:hover .go i{transform:translateX(5px)}
+.pt-pie{text-align:center;margin-top:30px}
+.pt-pie summary{display:inline-flex;cursor:pointer;color:var(--ink-2);font-size:14.5px;
+  border-bottom:1px dashed var(--line-2);padding-bottom:2px;list-style:none}
+.pt-pie summary::-webkit-details-marker{display:none}
+.pt-pie details[open] summary{color:var(--ink)}
+.pt-dif{max-width:820px;margin:22px auto 0;text-align:left;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.pt-dif{grid-template-columns:1fr}}
+.pt-dif div{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:18px}
+.pt-dif b{display:block;margin-bottom:6px;font-size:15px}
+.pt-dif p{color:var(--ink-2);font-size:14.5px}
+
+/* mostrar / ocultar según la ruta elegida */
+body[data-modo=""] header,body[data-modo=""] main,body[data-modo=""] footer,body[data-modo=""] .dock{display:none!important}
+body:not([data-modo=""]) #portada{display:none}
+body[data-modo="web"] [data-solo="sistema"]{display:none!important}
+body[data-modo="sistema"] [data-solo="web"]{display:none!important}
+
+/* ---------- barra superior ---------- */
+header{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);background:rgba(7,11,22,.72);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:11px var(--pad);max-width:var(--maxw);margin:0 auto}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em;text-decoration:none;font-size:15px;white-space:nowrap}
+.brand .mark{width:30px;height:30px;border-radius:9px;flex:0 0 auto;background:linear-gradient(135deg,var(--a1),var(--a2));display:grid;place-items:center;font-size:14px;color:#06080f}
+.switch{display:flex;gap:3px;padding:3px;border:1px solid var(--line);border-radius:999px;background:rgba(0,0,0,.3)}
+.switch button{border:none;background:none;border-radius:999px;padding:7px 14px;font-size:13.5px;color:var(--ink-3);font-weight:700}
+.switch button[aria-pressed="true"]{background:linear-gradient(135deg,rgba(124,92,255,.9),rgba(34,211,238,.85));color:#05070e}
+@media(max-width:640px){.brand span:not(.mark){display:none}.switch button{padding:7px 11px;font-size:12.5px}}
+
 /* ---------- hero ---------- */
-.hero{padding-top:clamp(46px,7vw,86px);padding-bottom:clamp(40px,6vw,70px)}
+.hero{padding-top:clamp(46px,7vw,80px);padding-bottom:clamp(40px,6vw,64px);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;background-image:var(--hero-img);
+  background-size:cover;background-position:center;opacity:.3;
+  mask-image:radial-gradient(ellipse 90% 80% at 70% 40%,#000 10%,transparent 72%);
+  -webkit-mask-image:radial-gradient(ellipse 90% 80% at 70% 40%,#000 10%,transparent 72%)}
 .hero h1{margin:20px 0 0}
 .rotator{display:block;min-height:1.12em}
 .rotator span{background:linear-gradient(100deg,var(--a2),var(--a1) 60%,var(--a3));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -109,8 +153,8 @@ h3{font-size:clamp(19px,2.3vw,23px)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 .hero-note{margin-top:26px;display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--ink-2);
   border-left:2px solid var(--a2);padding:2px 0 2px 14px;max-width:56ch}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:clamp(38px,5vw,62px)}
-.stat{border:1px solid var(--line);background:var(--card);border-radius:var(--r);padding:18px 16px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:clamp(38px,5vw,58px)}
+.stat{border:1px solid var(--line);background:var(--card);border-radius:var(--r);padding:18px 16px;backdrop-filter:blur(6px)}
 .stat b{display:block;font-size:clamp(22px,3.2vw,32px);letter-spacing:-.03em;
   background:linear-gradient(120deg,var(--a2),var(--a1));-webkit-background-clip:text;background-clip:text;color:transparent}
 .stat small{color:var(--ink-3);font-size:12.5px;line-height:1.35;display:block;margin-top:4px}
@@ -146,7 +190,6 @@ h3{font-size:clamp(19px,2.3vw,23px)}
   -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M20 6L9 17l-5-5' fill='none' stroke='black' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/13px no-repeat}
 .tier .foot{margin-top:auto;padding-top:20px;font-size:13px;color:var(--ink-3)}
 
-/* maquetas decorativas */
 .mk{height:132px;border-radius:14px;border:1px solid var(--line);background:rgba(0,0,0,.3);
   margin-bottom:20px;padding:12px;display:flex;gap:10px;overflow:hidden;position:relative}
 .mk::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(7,11,22,.7))}
@@ -161,8 +204,15 @@ h3{font-size:clamp(19px,2.3vw,23px)}
 .mk-bars{display:flex;gap:6px;align-items:flex-end;height:52px}
 .mk-bars i{flex:1;border-radius:5px 5px 2px 2px;background:linear-gradient(180deg,var(--a2),rgba(124,92,255,.45))}
 .mk-pill{height:16px;border-radius:999px;background:linear-gradient(90deg,var(--a1),var(--a2));width:52%}
+.mk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.mk-grid i{height:20px;border-radius:5px;background:rgba(255,255,255,.07);border:1px solid var(--line)}
 
 /* ---------- trabajos ---------- */
+.banda{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);margin-bottom:26px;aspect-ratio:32/9;background:#0a0f1e}
+.banda img{width:100%;height:100%;object-fit:cover;opacity:.85}
+.banda::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,11,22,.92),rgba(7,11,22,.25) 55%,rgba(7,11,22,.8))}
+.banda figcaption{position:absolute;inset:auto 0 0 0;padding:clamp(16px,3vw,26px);font-size:clamp(14px,2vw,17px);
+  font-weight:700;letter-spacing:-.02em;z-index:2}
 .work{border:1px solid var(--line);background:var(--card);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:12px;transition:.22s}
 .work:hover{border-color:var(--line-2);transform:translateY(-3px)}
 .work .top{display:flex;align-items:center;justify-content:space-between;gap:10px}
@@ -186,7 +236,8 @@ h3{font-size:clamp(19px,2.3vw,23px)}
 .b-side{padding:clamp(22px,3.4vw,34px);background:rgba(0,0,0,.26)}
 @media(max-width:980px){.b-side{order:1}}
 
-.prog{position:sticky;top:58px;z-index:5;margin:-6px 0 24px;padding:10px 0;background:linear-gradient(180deg,rgba(11,17,34,.96),rgba(11,17,34,.72),transparent)}
+.prog{position:sticky;top:56px;z-index:5;margin:-6px 0 24px;padding:10px 0;
+  background:linear-gradient(180deg,rgba(11,17,34,.97),rgba(11,17,34,.74),transparent)}
 .prog .bar{height:5px;border-radius:99px;background:rgba(255,255,255,.09);overflow:hidden}
 .prog .bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--a1),var(--a2));transition:width .45s cubic-bezier(.2,.8,.2,1)}
 .prog small{display:block;margin-top:7px;font-size:12.5px;color:var(--ink-3)}
@@ -215,10 +266,8 @@ h3{font-size:clamp(19px,2.3vw,23px)}
 .opt input:checked + span{border-color:var(--a2);background:rgba(34,211,238,.13);color:#fff;box-shadow:inset 0 0 0 1px rgba(34,211,238,.3)}
 .opt input:focus-visible + span{outline:2px solid var(--a2);outline-offset:2px}
 .opt span::before{content:"";width:15px;height:15px;flex:0 0 auto;border-radius:5px;border:1.5px solid var(--ink-3);transition:.16s}
-.opt input:checked + span::before{border-color:var(--a2);background:var(--a2);
-  mask:none;box-shadow:inset 0 0 0 3px rgba(0,0,0,.55)}
+.opt input:checked + span::before{border-color:var(--a2);background:var(--a2);box-shadow:inset 0 0 0 3px rgba(0,0,0,.55)}
 .opt--radio span::before{border-radius:50%}
-
 .fgroup{margin-bottom:16px}
 .fgroup > b{display:block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:9px}
 
@@ -233,20 +282,19 @@ h3{font-size:clamp(19px,2.3vw,23px)}
 .sw input:focus-visible + span{outline:2px solid var(--a2);outline-offset:2px}
 
 .b-actions{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.b-actions .mini{font-size:12.5px;color:var(--ink-3)}
 
-/* ---------- teléfono de vista previa ---------- */
+/* ---------- vista previa: teléfono ---------- */
 .pv-title{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
 .pv-sub{font-size:14px;color:var(--ink-2);margin-bottom:18px}
-.phone-hold{position:sticky;top:82px;display:flex;justify-content:center}
+.phone-hold{position:sticky;top:80px;display:flex;justify-content:center}
 @media(max-width:980px){.phone-hold{position:static}}
 .phone{width:262px;max-width:100%;border-radius:34px;padding:9px;background:linear-gradient(160deg,#2b3355,#141a30);
   box-shadow:0 40px 80px -30px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.09);position:relative}
 .phone::before{content:"";position:absolute;top:15px;left:50%;transform:translateX(-50%);width:54px;height:5px;border-radius:99px;background:rgba(0,0,0,.6);z-index:3}
 .screen{--pv-bg:#0f1222;--pv-ink:#f2f4ff;--pv-mut:#9aa3c4;--pv-a:#7c5cff;--pv-b:#22d3ee;--pv-card:rgba(255,255,255,.07);--pv-line:rgba(255,255,255,.12);
   background:var(--pv-bg);color:var(--pv-ink);border-radius:27px;overflow:hidden;height:452px;position:relative;transition:background .45s}
-.screen.flash{animation:flash .5s}
-@keyframes flash{0%{filter:brightness(1)}35%{filter:brightness(1.35)}100%{filter:brightness(1)}}
+.screen.flash,.laptop.flash{animation:flash .5s}
+@keyframes flash{0%{filter:brightness(1)}35%{filter:brightness(1.32)}100%{filter:brightness(1)}}
 .sc-bar{display:flex;align-items:center;gap:5px;padding:16px 11px 8px;font-size:8.5px;color:var(--pv-mut)}
 .sc-bar em{font-style:normal;flex:1;text-align:center;background:var(--pv-card);border-radius:99px;padding:4px 8px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .sc-dot{width:5px;height:5px;border-radius:50%;background:var(--pv-line)}
@@ -266,14 +314,49 @@ h3{font-size:clamp(19px,2.3vw,23px)}
 .sc-cards div b{display:block;font-size:8.5px;color:var(--pv-ink);margin-bottom:3px}
 .sc-badges{display:flex;flex-wrap:wrap;gap:4px;padding:0 11px 11px}
 .sc-badges u{text-decoration:none;font-size:7px;font-weight:700;padding:3px 6px;border-radius:99px;
-  background:var(--pv-card); /* respaldo para celulares antiguos */
+  background:var(--pv-card);
   background:linear-gradient(135deg,color-mix(in srgb,var(--pv-a) 22%,transparent),color-mix(in srgb,var(--pv-b) 18%,transparent));
   border:1px solid var(--pv-line);color:var(--pv-ink);animation:pop .3s ease-out}
 @keyframes pop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
 .sc-wa{position:absolute;right:10px;bottom:10px;background:#25d366;color:#04150a;font-size:8px;font-weight:800;
   padding:7px 10px;border-radius:99px;display:none;box-shadow:0 6px 16px -4px rgba(37,211,102,.7)}
 .sc-wa.on{display:block;animation:pop .3s}
-.pv-legend{margin-top:16px;font-size:12.5px;color:var(--ink-3);text-align:center;max-width:280px;margin-left:auto;margin-right:auto}
+.pv-legend{margin-top:16px;font-size:12.5px;color:var(--ink-3);text-align:center;max-width:300px;margin-left:auto;margin-right:auto}
+
+/* ---------- vista previa: panel del sistema ---------- */
+.laptop{width:100%;max-width:390px;border-radius:14px;padding:9px 9px 0;background:linear-gradient(160deg,#2b3355,#141a30);
+  box-shadow:0 40px 80px -30px rgba(0,0,0,.9),0 0 0 1px rgba(255,255,255,.09);position:relative}
+.laptop::after{content:"";display:block;height:9px;margin:9px -9px 0;border-radius:0 0 14px 14px;
+  background:linear-gradient(180deg,#212843,#0d1226)}
+.panel{--pn-bg:#0d1120;--pn-ink:#eef1ff;--pn-mut:#8f9bbd;--pn-a:#7c5cff;--pn-b:#22d3ee;
+  --pn-card:rgba(255,255,255,.055);--pn-line:rgba(255,255,255,.1);
+  background:var(--pn-bg);color:var(--pn-ink);border-radius:8px;overflow:hidden;
+  height:270px;display:flex;flex-direction:column;transition:background .4s,color .4s}
+.panel.claro{--pn-bg:#f5f7fc;--pn-ink:#101a30;--pn-mut:#5d6b88;--pn-card:rgba(0,0,0,.035);--pn-line:rgba(0,0,0,.1)}
+.pn-top{display:flex;align-items:center;gap:7px;padding:8px 10px;border-bottom:1px solid var(--pn-line)}
+.pn-logo{width:18px;height:18px;border-radius:6px;display:grid;place-items:center;font-size:8px;font-weight:800;color:#fff;
+  background:linear-gradient(135deg,var(--pn-a),var(--pn-b));flex:0 0 auto}
+.pn-top b{font-size:10px;font-weight:800;letter-spacing:-.01em;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.pn-top s{margin-left:auto;text-decoration:none;font-size:7px;color:var(--pn-mut);background:var(--pn-card);padding:3px 7px;border-radius:99px;white-space:nowrap}
+.pn-body{display:flex;flex:1;min-height:0}
+.pn-side{width:88px;flex:0 0 auto;border-right:1px solid var(--pn-line);padding:7px 6px;display:grid;gap:3px;align-content:start;overflow:hidden}
+.pn-side b{font-size:7px;font-weight:600;color:var(--pn-mut);padding:4px 6px;border-radius:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pn-side b:first-child{background:linear-gradient(135deg,var(--pn-a),var(--pn-b));color:#fff;font-weight:800}
+.pn-main{flex:1;min-width:0;padding:8px;display:grid;gap:7px;align-content:start}
+.pn-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.pn-kpis div{background:var(--pn-card);border:1px solid var(--pn-line);border-radius:7px;padding:6px}
+.pn-kpis small{display:block;font-size:6px;color:var(--pn-mut);letter-spacing:.04em;text-transform:uppercase}
+.pn-kpis b{display:block;font-size:10px;letter-spacing:-.02em;margin-top:2px}
+.pn-chart{display:flex;gap:4px;align-items:flex-end;height:42px;padding:6px;background:var(--pn-card);border:1px solid var(--pn-line);border-radius:7px}
+.pn-chart i{flex:1;border-radius:3px 3px 1px 1px;background:linear-gradient(180deg,var(--pn-b),color-mix(in srgb,var(--pn-a) 55%,transparent));min-height:3px}
+.pn-table{border:1px solid var(--pn-line);border-radius:7px;overflow:hidden}
+.pn-table div{display:flex;align-items:center;gap:6px;padding:4.5px 7px;font-size:7px;border-top:1px solid var(--pn-line)}
+.pn-table div:first-child{border-top:none;background:var(--pn-card);font-weight:800;letter-spacing:.05em;text-transform:uppercase;font-size:6px;color:var(--pn-mut)}
+.pn-table em{font-style:normal;flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.pn-table u{text-decoration:none;font-variant-numeric:tabular-nums}
+.pn-table s{text-decoration:none;font-size:6px;font-weight:800;padding:2px 5px;border-radius:99px;white-space:nowrap}
+.pn-table s.ok{background:rgba(52,211,153,.18);color:#34d399}
+.pn-table s.no{background:rgba(244,185,66,.18);color:#e9b949}
 
 /* ---------- resultado ---------- */
 .result{margin-top:22px;border:1px solid rgba(52,211,153,.34);border-radius:22px;overflow:hidden;
@@ -300,10 +383,10 @@ h3{font-size:clamp(19px,2.3vw,23px)}
 .copied{font-size:13px;color:var(--ok);font-weight:700;opacity:0;transition:.2s}
 .copied.on{opacity:1}
 
-/* ---------- proceso ---------- */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
+/* ---------- proceso / faq / cierre ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 @media(max-width:900px){.steps{grid-template-columns:1fr}}
-.step{border:1px solid var(--line);background:var(--card);border-radius:var(--r);padding:26px 24px;position:relative}
+.step{border:1px solid var(--line);background:var(--card);border-radius:var(--r);padding:26px 24px}
 .step b.k{font-size:44px;line-height:1;letter-spacing:-.05em;display:block;margin-bottom:12px;
   background:linear-gradient(160deg,var(--a1),rgba(34,211,238,.25));-webkit-background-clip:text;background-clip:text;color:transparent}
 .step p{color:var(--ink-2);font-size:15px;margin-top:9px}
@@ -313,17 +396,13 @@ h3{font-size:clamp(19px,2.3vw,23px)}
 .note h4{font-size:16px;margin-bottom:8px}
 .note h4 span{color:var(--a2)}
 .note p{color:var(--ink-2);font-size:14.5px}
-
-/* ---------- faq ---------- */
-details{border:1px solid var(--line);background:var(--card);border-radius:14px;margin-bottom:10px;overflow:hidden}
-details[open]{border-color:var(--line-2);background:var(--card-2)}
-summary{cursor:pointer;padding:18px 22px;font-weight:700;font-size:16px;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--a2);font-size:22px;font-weight:400;line-height:1;transition:.2s}
-details[open] summary::after{transform:rotate(45deg)}
-details p{padding:0 22px 20px;color:var(--ink-2);font-size:15px}
-
-/* ---------- cierre ---------- */
+details.faq{border:1px solid var(--line);background:var(--card);border-radius:14px;margin-bottom:10px;overflow:hidden}
+details.faq[open]{border-color:var(--line-2);background:var(--card-2)}
+details.faq summary{cursor:pointer;padding:18px 22px;font-weight:700;font-size:16px;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";color:var(--a2);font-size:22px;font-weight:400;line-height:1;transition:.2s}
+details.faq[open] summary::after{transform:rotate(45deg)}
+details.faq p{padding:0 22px 20px;color:var(--ink-2);font-size:15px}
 .close-box{border:1px solid var(--line-2);border-radius:26px;padding:clamp(30px,5vw,58px);text-align:center;
   background:radial-gradient(120% 140% at 50% 0%,rgba(124,92,255,.2),transparent 62%),rgba(255,255,255,.03)}
 .close-box h2{margin-bottom:16px}
@@ -331,15 +410,12 @@ details p{padding:0 22px 20px;color:var(--ink-2);font-size:15px}
 .close-box .hero-cta{justify-content:center}
 footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-index:2}
 .foot{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;color:var(--ink-3);font-size:13.5px}
-
-/* ---------- cta fija en celular ---------- */
 .dock{position:fixed;left:12px;right:12px;bottom:12px;z-index:65;display:none;gap:10px;
   padding:10px;border-radius:18px;background:rgba(8,12,24,.9);backdrop-filter:blur(12px);border:1px solid var(--line-2)}
 .dock .btn{flex:1;justify-content:center}
 .dock.on{display:flex}
 @media(min-width:761px){.dock{display:none!important}}
 
-/* ---------- animación de entrada ---------- */
 .rv{opacity:0;transform:translateY(22px)}
 .rv.in{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
 @media(prefers-reduced-motion:reduce){
@@ -347,22 +423,132 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
   html{scroll-behavior:auto}*{transition:none!important;animation:none!important}
 }
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ============================================================
+   HOJA PARA IMPRIMIR / PDF
+   ============================================================ */
+#hoja{display:none}
+@media print{
+  @page{ size:A4; margin:15mm 14mm }
+  html,body{background:#fff!important;color:#111!important}
+  body>*{display:none!important}
+  #hoja{display:block!important;font-family:var(--font);color:#111;font-size:11pt;line-height:1.5}
+  .aurora,.grid-bg,#scrollbar{display:none!important}
+  #hoja *{color:#111}
+  .hj-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16pt;
+    border-bottom:2pt solid #111;padding-bottom:8pt;margin-bottom:16pt}
+  .hj-marca{display:flex;align-items:center;gap:8pt;font-weight:800;font-size:14pt;letter-spacing:-.02em}
+  .hj-marca span{width:22pt;height:22pt;border-radius:6pt;background:#111;color:#fff;
+    display:grid;place-items:center;font-size:11pt}
+  .hj-top small{font-size:8.5pt;color:#555!important;text-align:right;line-height:1.4;display:block}
+  #hoja h1{font-size:19pt;letter-spacing:-.02em;margin:0 0 6pt;line-height:1.15}
+  #hoja h2{font-size:10pt;letter-spacing:.14em;text-transform:uppercase;color:#666!important;
+    margin:16pt 0 7pt;padding-bottom:3pt;border-bottom:.6pt solid #ccc;font-weight:800}
+  #hoja .hj-sub{font-size:11pt;color:#444!important;margin-bottom:4pt}
+  .hj-box{border:1pt solid #111;border-radius:5pt;padding:10pt 12pt;margin:12pt 0;page-break-inside:avoid;break-inside:avoid}
+  .hj-pasos div,.hj-firma,.hj-cols>div{page-break-inside:avoid;break-inside:avoid}
+  #hoja h2{page-break-after:avoid;break-after:avoid}
+  .hj-box .hj-lvl{font-size:8.5pt;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#555!important}
+  .hj-box .hj-money{font-size:20pt;font-weight:800;letter-spacing:-.03em;margin:2pt 0 3pt}
+  .hj-box p{font-size:9pt;color:#444!important}
+  .hj-dl{display:grid;grid-template-columns:34% 66%;gap:0;font-size:10.5pt}
+  .hj-dl dt{font-weight:700;padding:4.5pt 0;border-top:.6pt solid #e2e2e2}
+  .hj-dl dd{margin:0;padding:4.5pt 0;border-top:.6pt solid #e2e2e2;color:#333!important}
+  .hj-dl dt:first-of-type,.hj-dl dd:first-of-type{border-top:none}
+  .hj-cols{display:grid;grid-template-columns:1fr 1fr;gap:14pt}
+  #hoja ul{margin:0;padding-left:14pt;font-size:10.5pt}
+  #hoja li{margin-bottom:3pt}
+  .hj-pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:10pt;font-size:9.5pt}
+  .hj-pasos div{border:.6pt solid #ccc;border-radius:4pt;padding:8pt}
+  .hj-pasos b{display:block;font-size:9pt;margin-bottom:3pt}
+  .hj-pie{margin-top:18pt;padding-top:8pt;border-top:.6pt solid #ccc;font-size:8pt;color:#666!important;line-height:1.5}
+  .hj-firma{margin-top:14pt;font-size:9.5pt}
+  .hj-firma b{display:block;margin-bottom:2pt}
+  .hj-nada{font-size:11pt;color:#444!important}
+}
 </style>
 </head>
-<body>
+<body data-modo="">
 
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
 <div class="grid-bg" aria-hidden="true"></div>
 <div id="scrollbar" aria-hidden="true"></div>
 
+<!-- ================= PORTADA: ELEGIR RUTA ================= -->
+<section id="portada">
+  <div class="wrap">
+    <div class="pt-head">
+      <span class="pt-marca"><span class="mark">◆</span> Mi Página</span>
+      <h1>¿Qué necesitas <span class="grad">resolver</span>?</h1>
+      <p class="lead">Escoge por dónde empezar. Toda la página se ajusta a lo que elijas, y al final
+      te llevas una propuesta lista en PDF.</p>
+    </div>
+
+    <div class="rutas">
+      <button class="ruta" type="button" data-elegir="web">
+        <figure><img src="assets/portada-web.jpg" alt="Un celular mostrando una página web moderna" width="1536" height="1024" loading="eager" decoding="async"></figure>
+        <div class="cuerpo">
+          <span class="kicker">Ruta 1</span>
+          <h2>Página Web</h2>
+          <p>Para que la gente te encuentre, entienda qué haces y te escriba. Tu cara profesional en internet.</p>
+          <ul>
+            <li>Te buscan en Google y no apareces</li>
+            <li>Solo tienes redes sociales</li>
+            <li>Quieres verte más serio y confiable</li>
+          </ul>
+          <span class="go">Empezar por aquí <i>→</i></span>
+        </div>
+      </button>
+
+      <button class="ruta" type="button" data-elegir="sistema">
+        <figure><img src="assets/portada-sistema.jpg" alt="Un computador mostrando un panel administrativo con tablas y gráficas" width="1536" height="1024" loading="eager" decoding="async"></figure>
+        <div class="cuerpo">
+          <span class="kicker">Ruta 2</span>
+          <h2>Sistema Administrativo</h2>
+          <p>Para ordenar clientes, cobros, deudas y cuentas en un solo lugar. El reemplazo del Excel y del cuaderno.</p>
+          <ul>
+            <li>Llevas las cuentas en Excel o en papel</li>
+            <li>No sabes con certeza cuánto te deben</li>
+            <li>Cada cierre de mes es un dolor de cabeza</li>
+          </ul>
+          <span class="go">Empezar por aquí <i>→</i></span>
+        </div>
+      </button>
+    </div>
+
+    <div class="pt-pie">
+      <details>
+        <summary>No estoy seguro, ¿cuál es la diferencia?</summary>
+        <div class="pt-dif">
+          <div>
+            <b>La página web mira hacia afuera</b>
+            <p>Es lo que ven tus clientes. Sirve para que te encuentren, sepan qué ofreces y te contacten.
+            No guarda tu información interna.</p>
+          </div>
+          <div>
+            <b>El sistema mira hacia adentro</b>
+            <p>Lo usas tú y tu equipo, con usuario y contraseña. Guarda clientes, dinero, deudas y
+            movimientos, y te muestra cómo va el negocio.</p>
+          </div>
+          <div style="grid-column:1/-1">
+            <b>Muchos negocios necesitan las dos, pero no al mismo tiempo</b>
+            <p>Si todavía nadie te conoce, empieza por la página. Si ya tienes clientes y el desorden
+            te está costando plata, empieza por el sistema. Escoge una y en la conversación vemos si
+            vale la pena la otra.</p>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BARRA SUPERIOR ================= -->
 <header>
   <nav class="nav" aria-label="Principal">
-    <a class="brand" href="#top"><span class="mark">◆</span><span id="brandName">Sebastián López</span></a>
-    <div class="nav-links">
-      <a href="#soluciones">Qué puedo crear</a>
-      <a href="#trabajos">Lo que ya funciona</a>
-      <a href="#proceso">Cómo trabajamos</a>
-      <a href="#preguntas">Preguntas</a>
+    <a class="brand" href="#top"><span class="mark">◆</span><span>Mi Página</span></a>
+    <div class="switch" role="group" aria-label="Cambiar de ruta">
+      <button type="button" data-elegir="web" id="swWeb" aria-pressed="false">Página web</button>
+      <button type="button" data-elegir="sistema" id="swSis" aria-pressed="false">Sistema</button>
     </div>
     <a class="btn btn--main btn--sm" href="#configurador">Diseña tu solución</a>
   </nav>
@@ -373,28 +559,36 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
 <!-- ================= HERO ================= -->
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow rv">Soluciones digitales a medida <b>·</b> Colombia</span>
-    <h1 class="rv">
-      Tu negocio en internet,<br>
-      <span class="rotator"><span id="rot">como se merece.</span></span>
-    </h1>
-    <p class="lead rv">
-      Creo páginas web y sistemas hechos a la medida de tu negocio: para que te encuentren,
-      para que te vean profesional y para que dejes de hacer a mano lo que un sistema puede hacer solo.
-    </p>
-    <div class="hero-cta rv">
-      <a class="btn btn--main" href="#configurador">Diseña tu solución en 1 minuto →</a>
-      <a class="btn btn--ghost" href="#trabajos">Ver lo que ya funciona</a>
+    <div data-solo="web">
+      <span class="eyebrow rv">Páginas web a medida <b>·</b> Colombia</span>
+      <h1 class="rv">Tu negocio en internet,<br><span class="rotator"><span id="rotWeb">como se merece.</span></span></h1>
+      <p class="lead rv">Una página hecha a la medida de lo que haces: para que te encuentren,
+      para que te vean profesional y para que te escriban sin tener que rogarlo.</p>
+      <div class="hero-cta rv">
+        <a class="btn btn--main" href="#configurador">Diseña tu página en 1 minuto →</a>
+        <a class="btn btn--ghost" href="#trabajos">Ver lo que ya funciona</a>
+      </div>
+      <p class="hero-note rv"><strong>Esto que estás viendo es un ejemplo de mi trabajo.</strong>
+      No es una plantilla ni un PDF: es una página hecha a mano. Ábrela en tu celular y verás que se ve igual de bien.</p>
     </div>
-    <p class="hero-note rv">
-      <strong>Esto que estás viendo es un ejemplo de mi trabajo.</strong> No es una plantilla ni un PDF:
-      es una página hecha a mano. Ábrela en tu celular y verás que se ve igual de bien.
-    </p>
+
+    <div data-solo="sistema">
+      <span class="eyebrow rv">Sistemas administrativos a medida <b>·</b> Colombia</span>
+      <h1 class="rv">Tus cuentas en orden,<br><span class="rotator"><span id="rotSis">sin pelear con Excel.</span></span></h1>
+      <p class="lead rv">Un sistema hecho para tu negocio: clientes, ingresos, egresos, deudas y reportes
+      en un solo lugar, con usuario y contraseña, y disponible desde el celular.</p>
+      <div class="hero-cta rv">
+        <a class="btn btn--main" href="#configurador">Diseña tu sistema en 1 minuto →</a>
+        <a class="btn btn--ghost" href="#trabajos">Ver uno funcionando</a>
+      </div>
+      <p class="hero-note rv"><strong>Ya construí uno y está en uso real todos los días.</strong>
+      No es una demostración: es un sistema que reemplazó cuadernos y hojas de cálculo en una organización de verdad.</p>
+    </div>
 
     <div class="stats rv">
       <div class="stat"><b data-count="4">4</b><small>proyectos en uso real,<br>no maquetas</small></div>
       <div class="stat"><b data-count="365">365</b><small>lecciones publicadas en<br>una plataforma propia</small></div>
-      <div class="stat"><b data-count="100" data-suffix="%">100%</b><small>adaptado a celular,<br>tablet y computador</small></div>
+      <div class="stat"><b data-count="100" data-suffix="%">100%</b><small>funciona en celular,<br>tablet y computador</small></div>
       <div class="stat"><b data-count="0">0</b><small>plantillas compradas:<br>todo hecho desde cero</small></div>
     </div>
   </div>
@@ -403,29 +597,56 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
 <!-- ================= PROBLEMA ================= -->
 <section id="por-que">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head rv" data-solo="web">
       <span class="eyebrow">Por dónde empezar</span>
       <h2>Casi siempre, el problema es <span class="grad">uno de estos tres</span>.</h2>
       <p class="lead">No necesitas “tecnología”. Necesitas resolver algo concreto. Mira si te suena alguno:</p>
     </div>
-    <div class="cards c3">
+    <div class="sec-head rv" data-solo="sistema">
+      <span class="eyebrow">Por dónde empezar</span>
+      <h2>El Excel aguanta, <span class="grad">hasta que deja de aguantar</span>.</h2>
+      <p class="lead">Al principio alcanza con una hoja de cálculo. El problema llega después, y casi siempre así:</p>
+    </div>
+
+    <div class="cards c3" data-solo="web">
       <div class="card rv">
         <div class="ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg></div>
         <h3>Te buscan y no te encuentran</h3>
-        <p>La gente pregunta “¿tienes página?” y toca mandar capturas de pantalla. Una web propia te da un lugar
-        serio donde mostrar lo que haces, a cualquier hora.</p>
+        <p>La gente pregunta “¿tienes página?” y toca mandar capturas de pantalla. Una web propia te da un
+        lugar serio donde mostrar lo que haces, a cualquier hora.</p>
       </div>
       <div class="card rv">
-        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h13"/></svg></div>
-        <h3>Tu información vive en cuadernos y chats</h3>
-        <p>Clientes, pagos, citas y pendientes repartidos entre WhatsApp, papeles y la memoria.
-        Un sistema los reúne en un solo lugar, ordenado y buscable.</p>
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l2.4 5.6 6 .5-4.6 4 1.4 5.9L12 16l-5.2 3 1.4-5.9-4.6-4 6-.5z"/></svg></div>
+        <h3>No transmites lo que vales</h3>
+        <p>Haces un trabajo bueno, pero por fuera te ves igual que cualquiera. El diseño no es adorno:
+        es lo que hace que alguien confíe antes de conocerte.</p>
+      </div>
+      <div class="card rv">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <h3>Las consultas se pierden</h3>
+        <p>Preguntan por Instagram, por WhatsApp, por llamada, y algunas se quedan sin responder.
+        Una página ordena por dónde te contactan y qué te preguntan.</p>
+      </div>
+    </div>
+
+    <div class="cards c3" data-solo="sistema">
+      <div class="card rv">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 9v12"/></svg></div>
+        <h3>El archivo crece y se rompe</h3>
+        <p>Fórmulas que nadie recuerda, pestañas duplicadas, una celda mal pegada y las cuentas
+        dejan de cuadrar. Y no hay forma de saber quién cambió qué.</p>
+      </div>
+      <div class="card rv">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <h3>No sabes cuánto te deben</h3>
+        <p>Los abonos quedan en el chat, en un papel o en la memoria. Sin un lugar donde se registren,
+        la cartera se vuelve un cálculo aproximado en vez de un dato.</p>
       </div>
       <div class="card rv">
         <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 7v5l3 2"/><circle cx="12" cy="12" r="9"/></svg></div>
-        <h3>Repites lo mismo todos los días</h3>
-        <p>Copiar datos, mandar el mismo mensaje, sacar la misma cuenta. Todo eso se puede automatizar
-        y devolverte horas cada semana.</p>
+        <h3>Cerrar el mes te cuesta un día entero</h3>
+        <p>Sumar, revisar, cruzar y volver a sumar. Un sistema te da ese número al instante,
+        y además te dice cómo vas comparado con el mes pasado.</p>
       </div>
     </div>
   </div>
@@ -434,52 +655,44 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
 <!-- ================= NIVELES ================= -->
 <section id="soluciones">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head rv" data-solo="web">
       <span class="eyebrow">Qué puedo crear</span>
       <h2>Tres caminos. <span class="grad">Uno es el tuyo.</span></h2>
       <p class="lead">No vendo paquetes cerrados: esto es un punto de partida para conversar.
-      Al final de la página armas tu propia combinación.</p>
+      Más abajo armas tu propia combinación.</p>
+    </div>
+    <div class="sec-head rv" data-solo="sistema">
+      <span class="eyebrow">Qué puedo construir</span>
+      <h2>Se construye <span class="grad">por etapas.</span></h2>
+      <p class="lead">Nunca de golpe. Empezamos por lo que más te duele hoy, lo pones a funcionar,
+      y desde ahí crece. Así ves resultados desde la primera entrega.</p>
     </div>
 
-    <div class="cards c3">
-      <!-- nivel 1 -->
+    <!-- niveles de página web -->
+    <div class="cards c3" data-solo="web">
       <article class="tier rv">
         <div class="mk" aria-hidden="true">
           <div class="mk-ph"><i></i><i></i><i></i><i style="width:60%"></i></div>
           <div class="mk-col"><i class="w1"></i><i class="w2"></i><i class="w3"></i><div class="mk-row"><i></i><i></i></div></div>
         </div>
-        <span class="num">Nivel 1</span>
-        <h3>Presencia</h3>
+        <span class="num">Nivel 1</span><h3>Presencia</h3>
         <p>Para que existas en internet con una imagen profesional y la gente sepa quién eres y cómo contactarte.</p>
-        <ul>
-          <li>Página que se ve bien en celular</li>
-          <li>Tus servicios y tu historia, claros</li>
-          <li>Botón de WhatsApp directo</li>
-          <li>Publicación y puesta en línea</li>
-        </ul>
+        <ul><li>Página que se ve bien en celular</li><li>Tus servicios y tu historia, claros</li>
+          <li>Botón de WhatsApp directo</li><li>Publicación y puesta en línea</li></ul>
         <p class="foot">Ideal si hoy solo tienes redes sociales.</p>
       </article>
-
-      <!-- nivel 2 -->
       <article class="tier tier--hot rv">
         <span class="tag">La más pedida</span>
         <div class="mk" aria-hidden="true">
           <div class="mk-col"><div class="mk-pill"></div><i class="w3"></i><i class="w1"></i><div class="mk-row"><i></i><i></i><i></i></div><i class="w2"></i></div>
         </div>
-        <span class="num">Nivel 2</span>
-        <h3>Profesional</h3>
+        <span class="num">Nivel 2</span><h3>Profesional</h3>
         <p>Para negocios que ya tienen clientes y quieren comunicar mejor, verse serios y recibir más consultas.</p>
-        <ul>
-          <li>Diseño propio, con tus colores</li>
-          <li>Más secciones y contenido con intención</li>
-          <li>Formulario o agenda de contacto</li>
-          <li>Preparada para aparecer en Google</li>
-          <li>Catálogo, galería y testimonios</li>
-        </ul>
+        <ul><li>Diseño propio, con tus colores</li><li>Más secciones y contenido con intención</li>
+          <li>Formulario o agenda de contacto</li><li>Preparada para aparecer en Google</li>
+          <li>Catálogo, galería y testimonios</li></ul>
         <p class="foot">El punto medio entre imagen y resultados.</p>
       </article>
-
-      <!-- nivel 3 -->
       <article class="tier rv">
         <div class="mk" aria-hidden="true">
           <div class="mk-col">
@@ -488,17 +701,58 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
             <i class="w3"></i><i class="w2"></i>
           </div>
         </div>
-        <span class="num">Nivel 3</span>
-        <h3>Sistema a medida</h3>
-        <p>Cuando el problema no es la imagen sino la operación: clientes, pagos, citas, inventario, reportes.</p>
-        <ul>
-          <li>Panel privado con usuarios y contraseña</li>
-          <li>Registro de clientes, pagos y deudas</li>
-          <li>Reportes y cifras al día</li>
-          <li>Automatizaciones de tareas repetidas</li>
-          <li>Se entrega por etapas, no de golpe</li>
-        </ul>
-        <p class="foot">Es lo que ya construí y está funcionando hoy.</p>
+        <span class="num">Nivel 3</span><h3>Web con panel</h3>
+        <p>Cuando la página además necesita guardar información: reservas, usuarios registrados o contenido que tú administras.</p>
+        <ul><li>Panel privado para administrar</li><li>Usuarios con contraseña</li>
+          <li>Formularios que guardan datos</li><li>Integraciones según la necesidad</li>
+          <li>Se entrega por etapas</li></ul>
+        <p class="foot">La frontera entre página y sistema.</p>
+      </article>
+    </div>
+
+    <!-- niveles de sistema -->
+    <div class="cards c3" data-solo="sistema">
+      <article class="tier rv">
+        <div class="mk" aria-hidden="true">
+          <div class="mk-col"><div class="mk-pill"></div><div class="mk-grid"><i></i><i></i><i></i></div><i class="w3"></i><i class="w1"></i><i class="w2"></i></div>
+        </div>
+        <span class="num">Etapa 1</span><h3>Cuentas ordenadas</h3>
+        <p>El reemplazo directo del Excel: registrar lo que entra, lo que sale y a quién le vendiste, sin fórmulas que se rompan.</p>
+        <ul><li>Ingresos y egresos con su detalle</li><li>Registro de clientes</li>
+          <li>Totales y cierre del mes automáticos</li><li>Funciona en celular y computador</li>
+          <li>Un solo usuario</li></ul>
+        <p class="foot">Lo mínimo para dejar de perder plata por desorden.</p>
+      </article>
+      <article class="tier tier--hot rv">
+        <span class="tag">Lo más común</span>
+        <div class="mk" aria-hidden="true">
+          <div class="mk-col">
+            <div class="mk-grid"><i></i><i></i><i></i></div>
+            <div class="mk-bars"><i style="height:38%"></i><i style="height:72%"></i><i style="height:48%"></i><i style="height:90%"></i><i style="height:60%"></i></div>
+            <i class="w3"></i>
+          </div>
+        </div>
+        <span class="num">Etapa 2</span><h3>Sistema con módulos</h3>
+        <p>Cuando ya no basta con registrar: hay que controlar deudas, inventario o citas, y varias personas usan el sistema.</p>
+        <ul><li>Cartera: quién te debe y desde cuándo</li><li>Abonos y pagos por cuotas</li>
+          <li>Inventario o agenda de citas</li><li>Varios usuarios con permisos distintos</li>
+          <li>Reportes y gráficas del negocio</li></ul>
+        <p class="foot">El punto donde el sistema empieza a ahorrarte días.</p>
+      </article>
+      <article class="tier rv">
+        <div class="mk" aria-hidden="true">
+          <div class="mk-col">
+            <div class="mk-row"><i></i><i></i><i></i></div>
+            <div class="mk-bars"><i style="height:55%"></i><i style="height:80%"></i><i style="height:35%"></i><i style="height:95%"></i><i style="height:65%"></i><i style="height:78%"></i></div>
+            <i class="w3"></i><i class="w1"></i>
+          </div>
+        </div>
+        <span class="num">Etapa 3</span><h3>Sistema completo</h3>
+        <p>La operación entera adentro: periodos, liquidaciones, historial de cambios y reportes para tomar decisiones.</p>
+        <ul><li>Todos los módulos conectados</li><li>Liquidaciones y cierres por periodo</li>
+          <li>Historial de quién cambió qué</li><li>Respaldos y control de accesos</li>
+          <li>Entrega por etapas, mes a mes</li></ul>
+        <p class="foot">Es exactamente lo que ya construí y mantengo.</p>
       </article>
     </div>
   </div>
@@ -513,6 +767,10 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
       <p class="lead">Sistemas que uso y mantengo todos los días para una organización real.
       Puedo mostrarte cualquiera de ellos en vivo, en una llamada, cuando quieras.</p>
     </div>
+    <figure class="banda rv">
+      <img src="assets/trabajos.jpg" alt="Paneles de interfaz superpuestos con luz violeta y cian" width="1536" height="1024" loading="lazy" decoding="async">
+      <figcaption>Cuatro proyectos en producción · mantenidos y actualizados por mí</figcaption>
+    </figure>
     <div class="cards c2">
       <article class="work rv">
         <div class="top"><h3>Sistema administrativo completo</h3><span class="chip">En uso real</span></div>
@@ -546,15 +804,16 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
   <div class="wrap">
     <div class="sec-head rv">
       <span class="eyebrow">Diseña tu solución <b>·</b> 1 minuto</span>
-      <h2>¿No sabes qué necesitas? <span class="grad">Descubrámoslo juntos.</span></h2>
-      <p class="lead">Responde lo que quieras (nada es obligatorio) y verás, a la derecha,
-      una idea de cómo se vería tu negocio. Al final te armo un resumen que puedes enviarme por WhatsApp.</p>
+      <h2 data-solo="web">¿No sabes qué necesitas? <span class="grad">Descubrámoslo juntos.</span></h2>
+      <h2 data-solo="sistema">¿No sabes por dónde empezar? <span class="grad">Armémoslo juntos.</span></h2>
+      <p class="lead" data-solo="web">Responde lo que quieras (nada es obligatorio) y verás cómo se vería tu negocio.
+      Al final te llevas la propuesta en PDF y me la puedes enviar por WhatsApp.</p>
+      <p class="lead" data-solo="sistema">Responde lo que quieras (nada es obligatorio) y verás cómo se vería tu panel.
+      Al final te llevas la propuesta en PDF y me la puedes enviar por WhatsApp.</p>
     </div>
 
     <div class="builder rv">
       <div class="builder-grid">
-
-        <!-- ---------- formulario ---------- -->
         <div class="b-form">
           <div class="prog">
             <div class="bar"><i id="progBar"></i></div>
@@ -573,37 +832,65 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
             <input class="in" id="fQue" type="text" maxlength="80" placeholder="Ej.: Postres y tortas por encargo en Cali">
           </div>
 
-          <div class="q">
-            <p class="qt"><span class="n">3</span> ¿Qué estilo te gusta más?</p>
-            <p class="hint">Toca uno y mira cómo cambia la vista previa.</p>
-            <div class="swatches" id="fEstilo" role="radiogroup" aria-label="Estilo visual"></div>
+          <!-- ---- preguntas de PÁGINA WEB ---- -->
+          <div data-solo="web">
+            <div class="q">
+              <p class="qt"><span class="n">3</span> ¿Qué estilo te gusta más?</p>
+              <p class="hint">Toca uno y mira cómo cambia la vista previa.</p>
+              <div class="swatches" id="fEstilo" role="radiogroup" aria-label="Estilo visual"></div>
+            </div>
+            <div class="q">
+              <p class="qt"><span class="n">4</span> ¿Qué te gustaría lograr?</p>
+              <p class="hint">Puedes marcar varias.</p>
+              <div class="opts" id="fMetas"></div>
+            </div>
+            <div class="q">
+              <p class="qt"><span class="n">5</span> ¿Qué te gustaría que tuviera?</p>
+              <p class="hint">Marca lo que te llame la atención. Si no sabes, marca lo que te suene bonito:
+              yo te digo después qué conviene de verdad.</p>
+              <div id="fFunciones"></div>
+            </div>
+          </div>
+
+          <!-- ---- preguntas de SISTEMA ---- -->
+          <div data-solo="sistema">
+            <div class="q">
+              <p class="qt"><span class="n">3</span> ¿Cómo llevas hoy las cuentas?</p>
+              <p class="hint">Con confianza. No hay respuesta mala aquí.</p>
+              <div class="opts" id="fHoy"></div>
+            </div>
+            <div class="q">
+              <p class="qt"><span class="n">4</span> ¿Qué necesitas registrar y controlar?</p>
+              <p class="hint">Marca todo lo que te haga falta. Mira cómo se va armando el panel de la derecha.</p>
+              <div id="fSis"></div>
+            </div>
+            <div class="q">
+              <p class="qt"><span class="n">5</span> ¿Cuántas personas lo van a usar?</p>
+              <div class="opts" id="fUsuarios"></div>
+            </div>
+            <div class="q">
+              <p class="qt"><span class="n">6</span> ¿Desde dónde lo vas a usar?</p>
+              <div class="opts" id="fDispositivo"></div>
+            </div>
+            <div class="q">
+              <p class="qt"><span class="n">7</span> ¿Cómo prefieres verlo?</p>
+              <div class="opts" id="fTema"></div>
+            </div>
           </div>
 
           <div class="q">
-            <p class="qt"><span class="n">4</span> ¿Qué te gustaría lograr?</p>
-            <p class="hint">Puedes marcar varias.</p>
-            <div class="opts" id="fMetas"></div>
-          </div>
-
-          <div class="q">
-            <p class="qt"><span class="n">5</span> ¿Qué te gustaría que tuviera?</p>
-            <p class="hint">Marca lo que te llame la atención. Si no sabes, marca lo que te suene bonito: yo te digo después qué conviene de verdad.</p>
-            <div id="fFunciones"></div>
-          </div>
-
-          <div class="q">
-            <p class="qt"><span class="n">6</span> ¿Para cuándo lo necesitas?</p>
+            <p class="qt"><span class="n" data-solo="web">6</span><span class="n" data-solo="sistema">8</span> ¿Para cuándo lo necesitas?</p>
             <div class="opts" id="fPlazo"></div>
           </div>
 
           <div class="q">
-            <p class="qt"><span class="n">7</span> ¿Cuánto tienes pensado invertir?</p>
+            <p class="qt"><span class="n" data-solo="web">7</span><span class="n" data-solo="sistema">9</span> ¿Cuánto tienes pensado invertir?</p>
             <p class="hint">Con total confianza. Sirve para proponerte algo que sí puedas hacer, no para subir el precio.</p>
             <div class="opts" id="fPresupuesto"></div>
           </div>
 
           <div class="q">
-            <p class="qt"><span class="n">8</span> ¿Cómo te contacto?</p>
+            <p class="qt"><span class="n" data-solo="web">8</span><span class="n" data-solo="sistema">10</span> ¿Cómo te contacto?</p>
             <p class="hint">Solo si quieres. Si prefieres, me escribes tú y no dejas ningún dato.</p>
             <div class="two">
               <input class="in" id="fPersona" type="text" maxlength="50" placeholder="Tu nombre" autocomplete="name">
@@ -616,10 +903,9 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
             <button class="btn btn--ghost btn--sm" id="btnLimpiar" type="button">Empezar de nuevo</button>
           </div>
 
-          <!-- resultado -->
           <div class="result" id="resultado" role="region" aria-live="polite" aria-label="Tu propuesta">
             <div class="rh">
-              <span class="lvl" id="rLvl">Nivel 1 · Presencia</span>
+              <span class="lvl" id="rLvl">Nivel 1</span>
               <h3 id="rTitulo">Tu solución sugerida</h3>
               <p class="lead" id="rTexto" style="font-size:15.5px"></p>
             </div>
@@ -630,46 +916,73 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
               <p class="aviso" id="rAviso"></p>
               <ul class="rsum" id="rResumen"></ul>
               <div class="b-actions">
-                <a class="btn btn--wa" id="btnWa" href="#" target="_blank" rel="noopener">Enviármelo por WhatsApp</a>
+                <button class="btn btn--pdf" id="btnPdf" type="button">Descargar la propuesta en PDF</button>
+                <a class="btn btn--wa" id="btnWa" href="#" target="_blank" rel="noopener">Enviármela por WhatsApp</a>
                 <button class="btn btn--ghost btn--sm" id="btnCopiar" type="button">Copiar el resumen</button>
-                <button class="btn btn--ghost btn--sm" id="btnBajar" type="button">Descargarlo</button>
                 <span class="copied" id="copiado">¡Listo, copiado!</span>
               </div>
               <p class="disc">
-                Este rango es una referencia, no una cotización final. El precio real depende del alcance que
-                acordemos juntos. El dominio (tu dirección en internet) queda a tu nombre, y la publicación
-                y el soporte mensual se cotizan aparte.
+                El PDF se genera en tu propio dispositivo: al tocar el botón se abre la ventana de impresión
+                y eliges <strong>“Guardar como PDF”</strong>. Puedes imprimirlo, guardarlo o enviármelo.
+                El rango es una referencia, no una cotización final: el precio real depende del alcance que
+                acordemos juntos. El dominio queda a tu nombre; la publicación y el soporte mensual se cotizan aparte.
               </p>
             </div>
           </div>
         </div>
 
-        <!-- ---------- vista previa ---------- -->
         <aside class="b-side">
           <div class="phone-hold">
             <div>
               <p class="pv-title">Vista previa en vivo</p>
-              <p class="pv-sub">Así se vería en un celular:</p>
-              <div class="phone">
-                <div class="screen" id="screen">
-                  <div class="sc-bar"><span class="sc-dot"></span><span class="sc-dot"></span><em id="scUrl">www.tunegocio.com</em></div>
-                  <div class="sc-nav" id="scNav"></div>
-                  <div class="sc-hero">
-                    <div class="sc-logo" id="scLogo">TN</div>
-                    <div class="sc-name" id="scName">Tu Negocio</div>
-                    <div class="sc-tag" id="scTag">Escribe arriba y esto cambia solo.</div>
-                    <div class="sc-btns"><i id="scCta">Contáctanos</i><i>Ver más</i></div>
+              <p class="pv-sub" data-solo="web">Así se vería en un celular:</p>
+              <p class="pv-sub" data-solo="sistema">Así se vería tu panel:</p>
+
+              <!-- teléfono (web) -->
+              <div data-solo="web" style="display:flex;justify-content:center">
+                <div class="phone">
+                  <div class="screen" id="screen">
+                    <div class="sc-bar"><span class="sc-dot"></span><span class="sc-dot"></span><em id="scUrl">www.tunegocio.com</em></div>
+                    <div class="sc-nav" id="scNav"></div>
+                    <div class="sc-hero">
+                      <div class="sc-logo" id="scLogo">TN</div>
+                      <div class="sc-name" id="scName">Tu Negocio</div>
+                      <div class="sc-tag" id="scTag">Escribe arriba y esto cambia solo.</div>
+                      <div class="sc-btns"><i id="scCta">Contáctanos</i><i>Ver más</i></div>
+                    </div>
+                    <div class="sc-cards" id="scCards"></div>
+                    <div class="sc-badges" id="scBadges"></div>
+                    <span class="sc-wa" id="scWa">WhatsApp</span>
                   </div>
-                  <div class="sc-cards" id="scCards"></div>
-                  <div class="sc-badges" id="scBadges"></div>
-                  <span class="sc-wa" id="scWa">WhatsApp</span>
                 </div>
               </div>
-              <p class="pv-legend">Es solo un boceto para imaginarlo. El diseño real se hace contigo, con tus fotos y tus textos.</p>
+
+              <!-- panel (sistema) -->
+              <div data-solo="sistema" style="display:flex;justify-content:center">
+                <div class="laptop" id="laptop">
+                  <div class="panel" id="panel">
+                    <div class="pn-top">
+                      <span class="pn-logo" id="pnLogo">TN</span>
+                      <b id="pnName">Tu Negocio</b>
+                      <s>Administrador</s>
+                    </div>
+                    <div class="pn-body">
+                      <div class="pn-side" id="pnSide"></div>
+                      <div class="pn-main">
+                        <div class="pn-kpis" id="pnKpis"></div>
+                        <div class="pn-chart" id="pnChart"></div>
+                        <div class="pn-table" id="pnTable"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="pv-legend" data-solo="web">Es solo un boceto para imaginarlo. El diseño real se hace contigo, con tus fotos y tus textos.</p>
+              <p class="pv-legend" data-solo="sistema">Es solo un boceto con datos de ejemplo. El sistema real se arma con tus módulos y tus cifras.</p>
             </div>
           </div>
         </aside>
-
       </div>
     </div>
   </div>
@@ -690,26 +1003,21 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
         <p>Trabajo por partes y te muestro avances. Tú revisas y pides ajustes antes de publicar,
         no después. Nada se publica sin tu visto bueno.</p></div>
       <div class="step rv"><b class="k">03</b><h3>Entregamos</h3>
-        <p>Lo dejo funcionando en internet, te explico cómo usarlo en palabras sencillas
+        <p>Lo dejo funcionando, te explico cómo usarlo en palabras sencillas
         y queda con garantía por escrito.</p></div>
     </div>
-
     <div class="split">
-      <div class="note rv">
-        <h4><span>Garantía</span> — incluida</h4>
+      <div class="note rv"><h4><span>Garantía</span> — incluida</h4>
         <p>Durante los primeros 30 días después de entregar, si algo de lo acordado no funciona bien,
-        lo corrijo sin cobrarte. Eso es garantía.</p>
-      </div>
-      <div class="note rv">
-        <h4><span>Mantenimiento</span> — opcional, mensual</h4>
+        lo corrijo sin cobrarte. Eso es garantía.</p></div>
+      <div class="note rv"><h4><span>Mantenimiento</span> — opcional, mensual</h4>
         <p>Es distinto: es el acompañamiento continuo (revisiones, respaldos, cambios pequeños,
-        mantener todo publicado). Se cobra aparte y tú decides si lo quieres.</p>
-      </div>
+        mantener todo publicado). Se cobra aparte y tú decides si lo quieres.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ================= FAQ ================= -->
+<!-- ================= PREGUNTAS ================= -->
 <section id="preguntas">
   <div class="wrap">
     <div class="sec-head rv">
@@ -717,25 +1025,40 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
       <h2>Lo que casi siempre <span class="grad">me preguntan.</span></h2>
     </div>
     <div class="rv">
-      <details><summary>¿La página queda a mi nombre?</summary>
+      <details class="faq" data-solo="web"><summary>¿La página queda a mi nombre?</summary>
         <p>Sí. El dominio (por ejemplo <em>tunegocio.com</em>) se registra a tu nombre y es tuyo, aunque yo
         me encargue de la parte técnica. Si algún día quieres irte con otra persona, te llevas todo.</p></details>
-      <details><summary>¿Cuánto se demora?</summary>
+
+      <details class="faq" data-solo="sistema"><summary>¿Esto reemplaza a mi contador?</summary>
+        <p><strong>No, y es importante que lo sepas.</strong> Esto es un sistema <em>administrativo</em>:
+        organiza tu operación, tus clientes, tus cobros y tus movimientos. La contabilidad legal, los
+        impuestos y lo que se le reporta a la DIAN los sigue manejando tu contador. Lo que sí hace es
+        entregarle información ordenada y confiable, en vez de un Excel improvisado.</p></details>
+
+      <details class="faq" data-solo="sistema"><summary>¿Y todo lo que ya tengo en Excel se pierde?</summary>
+        <p>No. Lo que esté en una hoja de cálculo se puede pasar al sistema al inicio, para que no
+        empieces de cero. Eso se define en la conversación, porque depende de qué tan ordenado esté.</p></details>
+
+      <details class="faq" data-solo="sistema"><summary>¿Dónde quedan guardados los datos?</summary>
+        <p>En la nube, con respaldo, y solo entran las personas que tú autorices con su usuario y
+        contraseña. No queda en un computador que se puede daño o perder.</p></details>
+
+      <details class="faq"><summary>¿Cuánto se demora?</summary>
         <p>Una página sencilla, entre una y dos semanas desde que tenga tus textos y fotos.
         Una más completa, entre dos y cuatro. Un sistema se entrega por etapas, y la primera etapa
         suele estar lista en pocas semanas.</p></details>
-      <details><summary>¿Cómo se paga?</summary>
+
+      <details class="faq"><summary>¿Cómo se paga?</summary>
         <p>La mitad al empezar y la mitad al entregar. Si es un sistema por etapas, se paga por etapa,
         para que nunca pagues por algo que todavía no has visto funcionando.</p></details>
-      <details><summary>¿Y si después quiero cambios?</summary>
+
+      <details class="faq"><summary>¿Y si después quiero cambios?</summary>
         <p>Los ajustes de lo acordado entran en la garantía. Las funciones nuevas se cotizan aparte,
         siempre diciéndote el precio antes de hacer nada.</p></details>
-      <details><summary>¿Qué necesito tener listo?</summary>
-        <p>Idealmente: tu logo (si tienes), fotos de lo que haces y una idea de lo que quieres decir.
-        Si no tienes nada de eso, te ayudo a organizarlo. Nunca es excusa para no empezar.</p></details>
-      <details><summary>¿Hay costos mensuales?</summary>
+
+      <details class="faq"><summary>¿Hay costos mensuales?</summary>
         <p>Sí, y te los digo desde el principio: el dominio se renueva una vez al año y la publicación
-        (el "espacio" donde vive tu página) puede tener un costo mensual según lo que necesites.
+        (el “espacio” donde vive todo) puede tener un costo mensual según lo que necesites.
         Son valores bajos, pero prefiero que los sepas antes y no después.</p></details>
     </div>
   </div>
@@ -761,13 +1084,58 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
 
 <footer>
   <div class="wrap foot">
-    <span id="footName">Sebastián López · Soluciones digitales a medida</span>
+    <span>Mi Página · Soluciones digitales a medida</span>
     <span>Hecho a mano, sin plantillas · <span id="year">2026</span></span>
   </div>
 </footer>
 
 <div class="dock" id="dock">
   <a class="btn btn--main" href="#configurador">Diseña tu solución</a>
+</div>
+
+<!-- ================= HOJA IMPRIMIBLE / PDF ================= -->
+<div id="hoja" aria-hidden="true">
+  <div class="hj-top">
+    <span class="hj-marca"><span>◆</span> Mi Página</span>
+    <small id="hjFecha"></small>
+  </div>
+  <h1 id="hjTitulo">Propuesta de solución digital</h1>
+  <p class="hj-sub" id="hjSub"></p>
+
+  <div class="hj-box">
+    <div class="hj-lvl" id="hjLvl"></div>
+    <div class="hj-money" id="hjMoney"></div>
+    <p id="hjMoneyNota"></p>
+  </div>
+
+  <h2>Datos del interesado</h2>
+  <dl class="hj-dl" id="hjDatos"></dl>
+
+  <div class="hj-cols">
+    <div>
+      <h2 id="hjT1">Lo que quiere lograr</h2>
+      <ul id="hjMetas"></ul>
+    </div>
+    <div>
+      <h2 id="hjT2">Lo que incluiría</h2>
+      <ul id="hjFunc"></ul>
+    </div>
+  </div>
+
+  <h2>Cómo seguimos</h2>
+  <div class="hj-pasos">
+    <div><b>1. Conversamos</b>Revisamos juntos este resumen y ajustamos el alcance a lo que de verdad necesitas.</div>
+    <div><b>2. Cotización en firme</b>Te entrego el precio final por escrito, con lo que incluye y lo que no.</div>
+    <div><b>3. Construcción por partes</b>Ves avances antes de publicar. 50% al empezar y 50% al entregar.</div>
+  </div>
+
+  <div class="hj-firma">
+    <b>Qué incluye siempre</b>
+    Garantía de 30 días sobre lo acordado · explicación de uso en palabras sencillas ·
+    el dominio a tu nombre. El mantenimiento mensual es opcional y se cotiza aparte.
+  </div>
+
+  <div class="hj-pie" id="hjPie"></div>
 </div>
 
 <script>
@@ -778,15 +1146,15 @@ footer{border-top:1px solid var(--line);padding:30px 0 42px;position:relative;z-
    1. CONFIGURACIÓN — CAMBIA SOLO ESTO
    ============================================================ */
 const CONFIG = {
-  nombre   : "Sebastián López",
+  marca    : "Mi Página",
   // Tu WhatsApp con indicativo de país, sin +, sin espacios, sin guiones.
   // Colombia = 57. Debe quedar así: "57" seguido de tus 10 dígitos.
   // Mientras diga XXXXXXXXXX, los botones abren el correo en vez de WhatsApp.
   whatsapp : "57XXXXXXXXXX",
   correo   : "fundacionsocial@gimnasioemocionalmb.com",
 
-  // Rangos que se muestran en el resultado del configurador.
-  niveles: {
+  // ---- Rangos de PÁGINA WEB ----
+  web: {
     1:{ nombre:"Presencia", desde:450000,
         rango:"$450.000 – $650.000 COP",
         nota :"Solo el desarrollo. El dominio y la publicación se cotizan aparte.",
@@ -795,15 +1163,31 @@ const CONFIG = {
         rango:"$700.000 – $1.100.000 COP",
         nota :"Solo el desarrollo. El dominio y la publicación se cotizan aparte.",
         texto:"Lo que buscas ya no es solo estar en internet: es que la página trabaje por ti. Más secciones, mejor diseño y formas concretas de que la gente te escriba." },
-    3:{ nombre:"Sistema a medida", desde:1500000,
+    3:{ nombre:"Web con panel", desde:1500000,
         rango:"desde $1.500.000 COP",
-        nota :"Se entrega por etapas. Un sistema administrativo completo va de $6.000.000 a $10.000.000 según los módulos.",
-        texto:"Lo que necesitas es un sistema, no solo una página: guardar información, controlar quién entra y automatizar lo que hoy haces a mano. Se construye por etapas para que veas resultados desde la primera." }
+        nota :"Se entrega por etapas, empezando por lo que más necesitas.",
+        texto:"Tu página además necesita guardar información y tener una parte privada que tú administres. Eso ya es una pequeña aplicación, y se construye por etapas." }
+  },
+
+  // ---- Rangos de SISTEMA ADMINISTRATIVO ----
+  sistema: {
+    1:{ nombre:"Etapa 1 · Cuentas ordenadas", desde:1500000,
+        rango:"$1.500.000 – $2.500.000 COP",
+        nota :"Primera etapa completa y funcionando. El resto crece después, si lo necesitas.",
+        texto:"Con lo que marcaste, lo que necesitas es el reemplazo del Excel: un lugar donde registrar lo que entra, lo que sale y a quién le vendiste, sin fórmulas que se rompan." },
+    2:{ nombre:"Etapa 2 · Sistema con módulos", desde:2500000,
+        rango:"$2.500.000 – $5.000.000 COP",
+        nota :"Se entrega por módulos. Cada módulo queda funcionando antes de empezar el siguiente.",
+        texto:"Ya no te alcanza con registrar: necesitas controlar deudas, existencias o citas, y que varias personas entren con permisos distintos. Eso es un sistema con módulos." },
+    3:{ nombre:"Etapa 3 · Sistema completo", desde:6000000,
+        rango:"$6.000.000 – $10.000.000 COP",
+        nota :"Se construye y se paga por etapas, mes a mes, nunca todo de golpe.",
+        texto:"Lo que describes es la operación completa adentro: periodos, liquidaciones, historial y reportes para decidir. Es exactamente el tipo de sistema que ya construí y mantengo funcionando." }
   }
 };
 
 /* ============================================================
-   2. DATOS DEL CONFIGURADOR
+   2. DATOS DE LAS PREGUNTAS
    ============================================================ */
 const ESTILOS = [
   { id:"noche",   label:"Elegante y moderno", css:{ "--pv-bg":"#0f1222","--pv-ink":"#f2f4ff","--pv-mut":"#9aa3c4","--pv-a":"#7c5cff","--pv-b":"#22d3ee","--pv-card":"rgba(255,255,255,.07)","--pv-line":"rgba(255,255,255,.13)" }, sw:"linear-gradient(135deg,#0f1222,#7c5cff,#22d3ee)" },
@@ -813,55 +1197,112 @@ const ESTILOS = [
 ];
 
 const METAS = [
-  { id:"encontrar", label:"Que me encuentren en internet" },
+  { id:"encontrar",   label:"Que me encuentren en internet" },
   { id:"profesional", label:"Verme más profesional" },
-  { id:"vender", label:"Vender más" },
-  { id:"ordenar", label:"Organizar mi información" },
-  { id:"tiempo", label:"Ahorrar tiempo en tareas repetidas" },
-  { id:"atender", label:"Atender mejor a mis clientes" }
+  { id:"vender",      label:"Vender más" },
+  { id:"ordenar",     label:"Organizar mi información" },
+  { id:"tiempo",      label:"Ahorrar tiempo en tareas repetidas" },
+  { id:"atender",     label:"Atender mejor a mis clientes" }
 ];
 
-/* peso: 1 = presencia, 2 = profesional, 3 = sistema.  nav = aparece en el menú de la vista previa */
 const FUNCIONES = [
   { grupo:"Lo básico para empezar", items:[
-    { id:"whatsapp",  label:"Botón de WhatsApp",        peso:1, wa:true },
-    { id:"servicios", label:"Mis servicios o productos",peso:1, nav:"Servicios" },
+    { id:"whatsapp",  label:"Botón de WhatsApp",         peso:1 },
+    { id:"servicios", label:"Mis servicios o productos", peso:1, nav:"Servicios" },
     { id:"nosotros",  label:"Quién soy / mi historia",   peso:1, nav:"Nosotros" },
     { id:"galeria",   label:"Galería de fotos",          peso:1, nav:"Galería" },
     { id:"mapa",      label:"Ubicación y mapa",          peso:1, nav:"Ubicación" },
     { id:"redes",     label:"Enlace a mis redes",        peso:1 }
   ]},
   { grupo:"Para crecer y vender", items:[
-    { id:"catalogo",   label:"Catálogo con precios",      peso:2, nav:"Catálogo" },
-    { id:"formulario", label:"Formulario de contacto",    peso:2, nav:"Contacto" },
-    { id:"google",     label:"Aparecer en Google",        peso:2 },
-    { id:"testimonios",label:"Testimonios de clientes",   peso:2, nav:"Testimonios" },
-    { id:"blog",       label:"Blog o noticias",           peso:2, nav:"Blog" },
-    { id:"pedidos",    label:"Pedidos por la página",     peso:2, nav:"Pedidos" }
+    { id:"catalogo",   label:"Catálogo con precios",     peso:2, nav:"Catálogo" },
+    { id:"formulario", label:"Formulario de contacto",   peso:2, nav:"Contacto" },
+    { id:"google",     label:"Aparecer en Google",       peso:2 },
+    { id:"testimonios",label:"Testimonios de clientes",  peso:2, nav:"Testimonios" },
+    { id:"blog",       label:"Blog o noticias",          peso:2, nav:"Blog" },
+    { id:"pedidos",    label:"Pedidos por la página",    peso:2, nav:"Pedidos" }
   ]},
-  { grupo:"Para organizar el negocio (sistema)", items:[
-    { id:"agenda",    label:"Agenda de citas",            peso:3, nav:"Agenda" },
-    { id:"clientes",  label:"Base de datos de clientes",  peso:3 },
-    { id:"pagos",     label:"Control de pagos y deudas",  peso:3 },
-    { id:"usuarios",  label:"Ingreso con usuario y clave",peso:3 },
-    { id:"inventario",label:"Inventario de productos",    peso:3 },
-    { id:"reportes",  label:"Reportes y estadísticas",    peso:3 }
+  { grupo:"Con parte privada (ya es un panel)", items:[
+    { id:"agenda",   label:"Reserva de citas en línea",   peso:3, nav:"Agenda" },
+    { id:"registro", label:"Usuarios que se registran",   peso:3 },
+    { id:"guardar",  label:"Formularios que guardan datos",peso:3 },
+    { id:"admin",    label:"Panel para administrar el contenido", peso:3 }
   ]}
+];
+
+const SISTEMA = [
+  { grupo:"El dinero", items:[
+    { id:"ingresos",  label:"Ingresos y egresos",        peso:1, mod:"Movimientos" },
+    { id:"caja",      label:"Caja diaria",               peso:1, mod:"Caja" },
+    { id:"cartera",   label:"Deudas por cobrar",         peso:2, mod:"Cartera" },
+    { id:"cuotas",    label:"Pagos por cuotas y abonos", peso:2, mod:"Abonos" },
+    { id:"egresosdet",label:"Gastos por categoría",      peso:2, mod:"Gastos" }
+  ]},
+  { grupo:"Las personas", items:[
+    { id:"clientes",   label:"Clientes",                 peso:1, mod:"Clientes" },
+    { id:"proveedores",label:"Proveedores",              peso:2, mod:"Proveedores" },
+    { id:"empleados",  label:"Empleados y pagos de nómina", peso:3, mod:"Empleados" }
+  ]},
+  { grupo:"La operación", items:[
+    { id:"inventario",label:"Inventario de productos",   peso:2, mod:"Inventario" },
+    { id:"citas",     label:"Citas o agenda",            peso:2, mod:"Agenda" },
+    { id:"servicios", label:"Servicios prestados",       peso:2, mod:"Servicios" },
+    { id:"facturas",  label:"Cuentas de cobro o recibos",peso:2, mod:"Recibos" }
+  ]},
+  { grupo:"El control", items:[
+    { id:"reportes",  label:"Reportes y gráficas",       peso:2, mod:"Reportes" },
+    { id:"periodos",  label:"Cierres por periodo",       peso:3, mod:"Periodos" },
+    { id:"permisos",  label:"Varios usuarios con permisos", peso:3, mod:"Usuarios" },
+    { id:"historial", label:"Historial de quién cambió qué", peso:3, mod:"Historial" }
+  ]}
+];
+
+const HOY = [
+  { id:"excel",    label:"En Excel o Google Sheets" },
+  { id:"papel",    label:"En cuaderno o papel" },
+  { id:"programa", label:"En otro programa que no me sirve" },
+  { id:"nada",     label:"De forma desordenada, o no las llevo" }
+];
+
+const USUARIOS = [
+  { id:"u1",  label:"Solo yo",        n:1 },
+  { id:"u5",  label:"Entre 2 y 5",    n:5 },
+  { id:"u15", label:"Entre 6 y 15",   n:15 },
+  { id:"um",  label:"Más de 15",      n:30 }
+];
+
+const DISPOSITIVOS = [
+  { id:"pc",    label:"Computador",  largo:"Computador" },
+  { id:"cel",   label:"Celular",     largo:"Celular" },
+  { id:"ambos", label:"Los dos",     largo:"Computador y celular" }
+];
+
+const TEMAS = [
+  { id:"oscuro", label:"Oscuro" },
+  { id:"claro",  label:"Claro" }
 ];
 
 const PLAZOS = [
   { id:"ya",     label:"Lo antes posible" },
   { id:"mes",    label:"En 1 o 2 meses" },
-  { id:"año",    label:"Este año, sin afán" },
+  { id:"anio",   label:"Este año, sin afán" },
   { id:"mirando",label:"Solo estoy averiguando" }
 ];
 
-const PRESUPUESTOS = [
-  { id:"p1", label:"Menos de $700.000",         tope:700000 },
-  { id:"p2", label:"$700.000 a $1.500.000",     tope:1500000 },
-  { id:"p3", label:"$1.500.000 a $3.000.000",   tope:3000000 },
-  { id:"p4", label:"Más de $3.000.000",         tope:Infinity },
-  { id:"p0", label:"Prefiero conversarlo",      tope:null }
+const PRESU_WEB = [
+  { id:"w1", label:"Menos de $700.000",        tope:700000 },
+  { id:"w2", label:"$700.000 a $1.500.000",    tope:1500000 },
+  { id:"w3", label:"$1.500.000 a $3.000.000",  tope:3000000 },
+  { id:"w4", label:"Más de $3.000.000",        tope:Infinity },
+  { id:"w0", label:"Prefiero conversarlo",     tope:null }
+];
+
+const PRESU_SIS = [
+  { id:"s1", label:"Menos de $2.000.000",        tope:2000000 },
+  { id:"s2", label:"$2.000.000 a $4.000.000",    tope:4000000 },
+  { id:"s3", label:"$4.000.000 a $8.000.000",    tope:8000000 },
+  { id:"s4", label:"Más de $8.000.000",          tope:Infinity },
+  { id:"s0", label:"Prefiero conversarlo",       tope:null }
 ];
 
 /* ============================================================
@@ -874,7 +1315,7 @@ const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function slug(t){
   return (t||"").toLowerCase()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .normalize("NFD").replace(/[̀-ͯ]/g,"")
     .replace(/[^a-z0-9]/g,"").slice(0,22);
 }
 function iniciales(t){
@@ -882,67 +1323,130 @@ function iniciales(t){
   if(!p.length) return "TN";
   return ((p[0][0]||"") + (p[1]? p[1][0] : (p[0][1]||""))).toUpperCase();
 }
+function hoy(){
+  try{ return new Date().toLocaleDateString("es-CO",{day:"numeric",month:"long",year:"numeric"}); }
+  catch(e){ return new Date().toLocaleDateString(); }
+}
 
 /* ============================================================
-   4. MARCA Y ENLACES DE WHATSAPP
+   4. ESTADO
+   ============================================================ */
+const VACIO = {
+  modo:"", nombre:"", que:"", plazo:"", presupuesto:"", persona:"", contacto:"",
+  estilo:"noche", metas:[], funciones:[],
+  hoy:"", sis:[], usuarios:"", dispositivo:"", tema:"oscuro"
+};
+const ST = Object.assign({}, VACIO, { metas:[], funciones:[], sis:[] });
+const CLAVE = "mipagina-configurador-v2";
+
+function guardar(){ try{ localStorage.setItem(CLAVE, JSON.stringify(ST)); }catch(e){} }
+function cargar(){
+  try{
+    const d = JSON.parse(localStorage.getItem(CLAVE)||"null");
+    if(d && typeof d === "object") Object.keys(VACIO).forEach(k=>{ if(k in d) ST[k] = d[k]; });
+  }catch(e){}
+}
+const esWeb = ()=> ST.modo !== "sistema";
+
+/* listas planas para buscar etiquetas */
+const TODAS_F = FUNCIONES.reduce((a,g)=>a.concat(g.items),[]);
+const TODAS_S = SISTEMA.reduce((a,g)=>a.concat(g.items),[]);
+const buscar = (lista,id)=> lista.find(x=>x.id===id);
+const etiquetas = (ids,lista)=> ids.map(id=>{ const x = buscar(lista,id); return x ? x.label : id; });
+const presuActual = ()=> esWeb() ? PRESU_WEB : PRESU_SIS;
+
+/* ============================================================
+   5. MARCA Y WHATSAPP
    ============================================================ */
 const waListo = /^\d{10,15}$/.test(CONFIG.whatsapp);
-$("#brandName").textContent = CONFIG.nombre;
-$("#footName").textContent  = CONFIG.nombre + " · Soluciones digitales a medida";
-$("#year").textContent      = new Date().getFullYear();
+$("#year").textContent = new Date().getFullYear();
 
 function waLink(texto){
-  if(!waListo) return null;
-  return "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(texto);
+  return waListo ? "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(texto) : null;
 }
-(function(){
-  const a = $("#waDirecto");
-  const l = waLink("Hola " + CONFIG.nombre + ", vi tu página y quiero conversar sobre una solución para mi negocio.");
-  if(l){ a.href = l; }
-  else { a.href = "mailto:" + CONFIG.correo; a.textContent = "Escribirme por correo"; a.classList.remove("btn--wa"); a.classList.add("btn--ghost"); }
-})();
+function ponerContacto(el, texto, etiquetaWa, etiquetaMail, asunto){
+  const l = waLink(texto);
+  if(l){
+    el.href = l; el.textContent = etiquetaWa;
+    el.classList.add("btn--wa"); el.classList.remove("btn--ghost");
+  } else {
+    el.href = "mailto:" + CONFIG.correo +
+      (asunto ? "?subject=" + encodeURIComponent(asunto) + "&body=" + encodeURIComponent(texto) : "");
+    el.textContent = etiquetaMail;
+    el.classList.remove("btn--wa"); el.classList.add("btn--ghost");
+  }
+}
+ponerContacto($("#waDirecto"),
+  "Hola, vi tu página y quiero conversar sobre una solución para mi negocio.",
+  "Escribirme por WhatsApp", "Escribirme por correo", "Quiero conversar sobre una solución");
 
 /* ============================================================
-   5. TÍTULO ROTATIVO
+   6. ELEGIR RUTA
    ============================================================ */
-(function(){
-  const el = $("#rot");
-  const frases = ["como se merece.","fácil de encontrar.","imposible de ignorar.","ordenado y sin caos."];
+function ponerModo(modo, mover){
+  ST.modo = modo;
+  document.body.setAttribute("data-modo", modo);
+  $("#swWeb").setAttribute("aria-pressed", String(modo === "web"));
+  $("#swSis").setAttribute("aria-pressed", String(modo === "sistema"));
+  document.title = (modo === "sistema")
+    ? "Mi Página — Sistemas administrativos a medida"
+    : "Mi Página — Páginas web a medida";
+  guardar();
+  pintarOpciones(); pintarPreview(); pintarProgreso();
+  $("#resultado").classList.remove("on");
+  if(mover){ window.scrollTo({ top:0, behavior:"auto" }); revelar(); }
+}
+$$('[data-elegir]').forEach(b=>{
+  b.addEventListener("click", ()=>{
+    const m = b.getAttribute("data-elegir");
+    const cambio = ST.modo && ST.modo !== m;
+    if(cambio){ ST.presupuesto = ""; }
+    ponerModo(m, true);
+  });
+});
+
+/* ============================================================
+   7. TÍTULOS ROTATIVOS
+   ============================================================ */
+function rotar(el, frases){
   if(reduce || !el) return;
   let i = 0;
   el.style.transition = "opacity .35s";
   setInterval(()=>{
+    if(!el.offsetParent) return;
     el.style.opacity = 0;
     setTimeout(()=>{ i = (i+1) % frases.length; el.textContent = frases[i]; el.style.opacity = 1; }, 350);
   }, 3200);
-})();
+}
+rotar($("#rotWeb"), ["como se merece.","fácil de encontrar.","imposible de ignorar.","clara y confiable."]);
+rotar($("#rotSis"), ["sin pelear con Excel.","en un solo lugar.","al día, no al mes siguiente.","sin cuadernos ni papelitos."]);
 
 /* ============================================================
-   6. ANIMACIONES DE ENTRADA, BARRA DE LECTURA, CONTADORES
+   8. ANIMACIONES, BARRA, CONTADORES
    ============================================================ */
-(function(){
+let io = null;
+function revelar(){
   const items = $$(".rv");
-  if(reduce || !("IntersectionObserver" in window)){ items.forEach(e=>e.classList.add("in")); }
-  else {
-    const io = new IntersectionObserver((es)=>{
+  if(reduce || !("IntersectionObserver" in window)){ items.forEach(e=>e.classList.add("in")); return; }
+  if(!io){
+    io = new IntersectionObserver(es=>{
       es.forEach((e,k)=>{ if(e.isIntersecting){ e.target.style.transitionDelay = (k*70)+"ms"; e.target.classList.add("in"); io.unobserve(e.target); } });
     },{ threshold:.12, rootMargin:"0px 0px -8% 0px" });
-    items.forEach(e=>io.observe(e));
-    // red de seguridad: si algún navegador (por ejemplo el de WhatsApp)
-    // no dispara el observador, el contenido igual aparece.
-    setTimeout(()=>items.forEach(e=>e.classList.add("in")), 2600);
   }
+  items.forEach(e=>{ if(!e.classList.contains("in")) io.observe(e); });
+  setTimeout(()=>items.forEach(e=>e.classList.add("in")), 2600);
+}
 
+(function(){
   const bar = $("#scrollbar"), dock = $("#dock");
   function onScroll(){
     const h = document.documentElement.scrollHeight - window.innerHeight;
     bar.style.width = (h>0 ? (window.scrollY/h)*100 : 0) + "%";
-    dock.classList.toggle("on", window.scrollY > window.innerHeight*0.85);
+    dock.classList.toggle("on", ST.modo !== "" && window.scrollY > window.innerHeight*0.85);
   }
   window.addEventListener("scroll", onScroll, { passive:true });
   onScroll();
 
-  const nums = $$("[data-count]");
   if(!reduce && "IntersectionObserver" in window){
     const io2 = new IntersectionObserver(es=>{
       es.forEach(e=>{
@@ -950,57 +1454,51 @@ function waLink(texto){
         const el = e.target, fin = +el.dataset.count, suf = el.dataset.suffix || "";
         const t0 = performance.now(), dur = 900;
         (function tick(t){
-          const p = Math.min(1,(t-t0)/dur), v = Math.round(fin*(1-Math.pow(1-p,3)));
-          el.textContent = v + suf;
+          const p = Math.min(1,(t-t0)/dur);
+          el.textContent = Math.round(fin*(1-Math.pow(1-p,3))) + suf;
           if(p<1) requestAnimationFrame(tick);
         })(t0);
         io2.unobserve(el);
       });
     },{ threshold:.5 });
-    nums.forEach(n=>io2.observe(n));
+    $$("[data-count]").forEach(n=>io2.observe(n));
   }
 })();
 
 /* ============================================================
-   7. ESTADO DEL CONFIGURADOR
+   9. PINTAR OPCIONES
    ============================================================ */
-const ST = { nombre:"", que:"", estilo:"noche", metas:[], funciones:[], plazo:"", presupuesto:"", persona:"", contacto:"" };
-const CLAVE = "propuesta-configurador-v1";
-
-function guardar(){ try{ localStorage.setItem(CLAVE, JSON.stringify(ST)); }catch(e){} }
-function cargar(){
-  try{
-    const d = JSON.parse(localStorage.getItem(CLAVE)||"null");
-    if(d && typeof d === "object") Object.keys(ST).forEach(k=>{ if(k in d) ST[k] = d[k]; });
-  }catch(e){}
+function chips(id, lista, name, tipo, sel){
+  const marcado = v => tipo === "radio" ? sel === v : (sel||[]).includes(v);
+  $(id).innerHTML = lista.map(o=>
+    '<label class="opt'+(tipo==="radio"?" opt--radio":"")+'">' +
+    '<input type="'+tipo+'" name="'+name+'" value="'+o.id+'"'+(marcado(o.id)?" checked":"")+'>' +
+    '<span>'+esc(o.label)+'</span></label>').join("");
+}
+function grupos(id, defs, name, sel){
+  $(id).innerHTML = defs.map(g=>
+    '<div class="fgroup"><b>'+esc(g.grupo)+'</b><div class="opts">' +
+    g.items.map(f=>'<label class="opt"><input type="checkbox" name="'+name+'" value="'+f.id+'"' +
+      ((sel||[]).includes(f.id)?" checked":"")+'><span>'+esc(f.label)+'</span></label>').join("") +
+    '</div></div>').join("");
 }
 
-/* --- pintar las opciones --- */
 function pintarOpciones(){
-  // estilos
-  $("#fEstilo").innerHTML = ESTILOS.map(e=>
-    '<label class="sw"><input type="radio" name="estilo" value="'+e.id+'"'+(ST.estilo===e.id?" checked":"")+'>'+
-    '<span><i style="background:'+e.sw+'"></i>'+esc(e.label)+'</span></label>').join("");
-
-  // metas
-  $("#fMetas").innerHTML = METAS.map(m=>
-    '<label class="opt"><input type="checkbox" name="meta" value="'+m.id+'"'+(ST.metas.includes(m.id)?" checked":"")+'>'+
-    '<span>'+esc(m.label)+'</span></label>').join("");
-
-  // funciones
-  $("#fFunciones").innerHTML = FUNCIONES.map(g=>
-    '<div class="fgroup"><b>'+esc(g.grupo)+'</b><div class="opts">'+
-    g.items.map(f=>'<label class="opt"><input type="checkbox" name="func" value="'+f.id+'"'+(ST.funciones.includes(f.id)?" checked":"")+'>'+
-    '<span>'+esc(f.label)+'</span></label>').join("")+
-    '</div></div>').join("");
-
-  // plazo y presupuesto
-  $("#fPlazo").innerHTML = PLAZOS.map(p=>
-    '<label class="opt opt--radio"><input type="radio" name="plazo" value="'+p.id+'"'+(ST.plazo===p.id?" checked":"")+'>'+
-    '<span>'+esc(p.label)+'</span></label>').join("");
-  $("#fPresupuesto").innerHTML = PRESUPUESTOS.map(p=>
-    '<label class="opt opt--radio"><input type="radio" name="presu" value="'+p.id+'"'+(ST.presupuesto===p.id?" checked":"")+'>'+
-    '<span>'+esc(p.label)+'</span></label>').join("");
+  if(esWeb()){
+    $("#fEstilo").innerHTML = ESTILOS.map(e=>
+      '<label class="sw"><input type="radio" name="estilo" value="'+e.id+'"'+(ST.estilo===e.id?" checked":"")+'>' +
+      '<span><i style="background:'+e.sw+'"></i>'+esc(e.label)+'</span></label>').join("");
+    chips("#fMetas", METAS, "meta", "checkbox", ST.metas);
+    grupos("#fFunciones", FUNCIONES, "func", ST.funciones);
+  } else {
+    chips("#fHoy", HOY, "hoy", "radio", ST.hoy);
+    grupos("#fSis", SISTEMA, "sis", ST.sis);
+    chips("#fUsuarios", USUARIOS, "usuarios", "radio", ST.usuarios);
+    chips("#fDispositivo", DISPOSITIVOS, "disp", "radio", ST.dispositivo);
+    chips("#fTema", TEMAS, "tema", "radio", ST.tema);
+  }
+  chips("#fPlazo", PLAZOS, "plazo", "radio", ST.plazo);
+  chips("#fPresupuesto", presuActual(), "presu", "radio", ST.presupuesto);
 
   $("#fNombre").value   = ST.nombre;
   $("#fQue").value      = ST.que;
@@ -1008,199 +1506,322 @@ function pintarOpciones(){
   $("#fContacto").value = ST.contacto;
 }
 
-/* --- leer el formulario --- */
 function leer(){
   ST.nombre   = $("#fNombre").value.trim();
   ST.que      = $("#fQue").value.trim();
   ST.persona  = $("#fPersona").value.trim();
   ST.contacto = $("#fContacto").value.trim();
-  const est = $('input[name="estilo"]:checked'); ST.estilo = est ? est.value : "noche";
-  ST.metas     = $$('input[name="meta"]:checked').map(i=>i.value);
-  ST.funciones = $$('input[name="func"]:checked').map(i=>i.value);
-  const pl = $('input[name="plazo"]:checked');  ST.plazo = pl ? pl.value : "";
-  const pr = $('input[name="presu"]:checked');  ST.presupuesto = pr ? pr.value : "";
+  const val = n => { const i = $('input[name="'+n+'"]:checked'); return i ? i.value : ""; };
+  const vals = n => $$('input[name="'+n+'"]:checked').map(i=>i.value);
+  if(esWeb()){
+    ST.estilo    = val("estilo") || "noche";
+    ST.metas     = vals("meta");
+    ST.funciones = vals("func");
+  } else {
+    ST.hoy         = val("hoy");
+    ST.sis         = vals("sis");
+    ST.usuarios    = val("usuarios");
+    ST.dispositivo = val("disp");
+    ST.tema        = val("tema") || "oscuro";
+  }
+  ST.plazo       = val("plazo");
+  ST.presupuesto = val("presu");
   guardar();
 }
 
-/* --- buscar una función por id --- */
-const TODAS = FUNCIONES.reduce((a,g)=>a.concat(g.items),[]);
-const buscarF = id => TODAS.find(f=>f.id===id);
-
-/* --- nivel sugerido --- */
+/* ============================================================
+   10. NIVEL SUGERIDO
+   ============================================================ */
 function nivel(){
   let n = 1;
-  ST.funciones.forEach(id=>{ const f = buscarF(id); if(f && f.peso > n) n = f.peso; });
-  if(n < 2 && (ST.funciones.length >= 4 || ST.metas.includes("vender"))) n = 2;
-  if(n < 3 && (ST.metas.includes("ordenar") && ST.metas.includes("tiempo"))) n = 3;
+  if(esWeb()){
+    ST.funciones.forEach(id=>{ const f = buscar(TODAS_F,id); if(f && f.peso > n) n = f.peso; });
+    if(n < 2 && (ST.funciones.length >= 4 || ST.metas.includes("vender"))) n = 2;
+  } else {
+    ST.sis.forEach(id=>{ const f = buscar(TODAS_S,id); if(f && f.peso > n) n = f.peso; });
+    if(n < 3 && ST.sis.length >= 9) n = 3;
+    const u = buscar(USUARIOS, ST.usuarios);
+    if(u && u.n >= 15 && n < 3) n = 3;
+    if(n < 2 && ST.sis.length >= 4) n = 2;
+  }
   return n;
 }
+const nivelDef = ()=> (esWeb() ? CONFIG.web : CONFIG.sistema)[nivel()];
 
 /* ============================================================
-   8. VISTA PREVIA EN VIVO
+   11. VISTA PREVIA
    ============================================================ */
-function pintarPreview(){
+function pintarPreview(){ esWeb() ? previewWeb() : previewSistema(); }
+
+function previewWeb(){
   const sc = $("#screen");
-  const est = ESTILOS.find(e=>e.id===ST.estilo) || ESTILOS[0];
+  if(!sc) return;
+  const est = buscar(ESTILOS, ST.estilo) || ESTILOS[0];
   Object.keys(est.css).forEach(k=> sc.style.setProperty(k, est.css[k]));
 
-  const nom = ST.nombre || "Tu Negocio";
-  const que = ST.que    || "Escribe arriba y esto cambia solo.";
-  $("#scName").textContent = nom;
-  $("#scTag").textContent  = que;
+  $("#scName").textContent = ST.nombre || "Tu Negocio";
+  $("#scTag").textContent  = ST.que    || "Escribe arriba y esto cambia solo.";
   $("#scLogo").textContent = iniciales(ST.nombre);
   $("#scUrl").textContent  = "www." + (slug(ST.nombre) || "tunegocio") + ".com";
 
-  // menú: siempre se ve completo, aunque no haya marcado nada
-  let nav = ["Inicio"].concat(ST.funciones.map(buscarF).filter(f=>f && f.nav).map(f=>f.nav));
+  let nav = ["Inicio"].concat(ST.funciones.map(id=>buscar(TODAS_F,id)).filter(f=>f && f.nav).map(f=>f.nav));
   if(nav.length < 4) nav.push("Contacto");
-  if(nav.length < 3) nav.splice(1, 0, "Servicios");
-  nav = nav.slice(0, 5);
-  $("#scNav").innerHTML = nav.map(n=>"<b>"+esc(n)+"</b>").join("");
+  if(nav.length < 3) nav.splice(1,0,"Servicios");
+  $("#scNav").innerHTML = nav.slice(0,5).map(n=>"<b>"+esc(n)+"</b>").join("");
 
-  // tarjetas
   const base = ST.que ? ST.que.split(/[,·y]\s+/).filter(s=>s.length>2).slice(0,2) : [];
-  const tarjetas = [
+  const t = [
     { t: base[0] || "Lo que ofrecemos", d:"Contado claro, con fotos reales." },
     { t: base[1] || "Por qué elegirnos", d:"Confianza y trato cercano." }
   ];
-  if(ST.funciones.includes("catalogo")) tarjetas.push({ t:"Catálogo", d:"Con precios al día." });
-  if(ST.funciones.includes("agenda"))   tarjetas.push({ t:"Reserva tu cita", d:"En línea, a cualquier hora." });
-  $("#scCards").innerHTML = tarjetas.slice(0,4).map(c=>
-    "<div><b>"+esc(c.t)+"</b>"+esc(c.d)+"</div>").join("");
+  if(ST.funciones.includes("catalogo")) t.push({ t:"Catálogo", d:"Con precios al día." });
+  if(ST.funciones.includes("agenda"))   t.push({ t:"Reserva tu cita", d:"En línea, a cualquier hora." });
+  $("#scCards").innerHTML = t.slice(0,4).map(c=>"<div><b>"+esc(c.t)+"</b>"+esc(c.d)+"</div>").join("");
 
-  // etiquetas de funciones
-  const badges = ST.funciones.map(buscarF).filter(Boolean).slice(0,6).map(f=>f.label);
-  $("#scBadges").innerHTML = badges.map(b=>"<u>"+esc(b)+"</u>").join("");
+  $("#scBadges").innerHTML = ST.funciones.map(id=>buscar(TODAS_F,id)).filter(Boolean)
+    .slice(0,6).map(f=>"<u>"+esc(f.label)+"</u>").join("");
 
-  // botón principal y burbuja de whatsapp
   $("#scCta").textContent = ST.funciones.includes("agenda") ? "Agendar cita"
                           : ST.funciones.includes("pedidos") ? "Pedir ahora"
                           : ST.funciones.includes("catalogo") ? "Ver catálogo" : "Contáctanos";
   $("#scWa").classList.toggle("on", ST.funciones.includes("whatsapp"));
+  destello(sc);
+}
 
-  if(!reduce){ sc.classList.remove("flash"); void sc.offsetWidth; sc.classList.add("flash"); }
+function previewSistema(){
+  const pn = $("#panel");
+  if(!pn) return;
+  pn.classList.toggle("claro", ST.tema === "claro");
+  $("#pnName").textContent = ST.nombre || "Tu Negocio";
+  $("#pnLogo").textContent = iniciales(ST.nombre);
+
+  let mods = ST.sis.map(id=>buscar(TODAS_S,id)).filter(f=>f && f.mod).map(f=>f.mod);
+  mods = ["Inicio"].concat(mods.filter((m,i,a)=>a.indexOf(m)===i));
+  if(mods.length < 4) mods = mods.concat(["Movimientos","Clientes","Reportes"].filter(m=>!mods.includes(m)));
+  $("#pnSide").innerHTML = mods.slice(0,8).map(m=>"<b>"+esc(m)+"</b>").join("");
+
+  const kpis = [];
+  if(ST.sis.includes("ingresos") || !ST.sis.length) kpis.push(["Ingresos del mes","$ 8.420.000"]);
+  if(ST.sis.includes("cartera"))    kpis.push(["Por cobrar","$ 1.960.000"]);
+  if(ST.sis.includes("clientes"))   kpis.push(["Clientes","142"]);
+  if(ST.sis.includes("inventario")) kpis.push(["Productos","318"]);
+  if(ST.sis.includes("citas"))      kpis.push(["Citas hoy","7"]);
+  if(ST.sis.includes("empleados"))  kpis.push(["Empleados","9"]);
+  if(ST.sis.includes("caja"))       kpis.push(["Caja de hoy","$ 640.000"]);
+  const relleno = [["Egresos del mes","$ 3.180.000"],["Utilidad del mes","$ 5.240.000"],["Movimientos","326"]];
+  for(let i=0; kpis.length < 3 && i < relleno.length; i++){
+    if(!kpis.some(k=>k[0] === relleno[i][0])) kpis.push(relleno[i]);
+  }
+  $("#pnKpis").innerHTML = kpis.slice(0,3).map(k=>
+    "<div><small>"+esc(k[0])+"</small><b>"+esc(k[1])+"</b></div>").join("");
+
+  const alturas = [38,64,46,88,58,74,52];
+  $("#pnChart").innerHTML = alturas.map(h=>'<i style="height:'+h+'%"></i>').join("");
+
+  const filas = ST.sis.includes("cartera")
+    ? [["Cliente","Saldo",""],["María G.","$ 420.000","no"],["Carlos P.","$ 0","ok"],["Tienda El Sol","$ 1.150.000","no"],["Ana R.","$ 0","ok"]]
+    : ST.sis.includes("inventario")
+    ? [["Producto","Existencias",""],["Referencia A","24","ok"],["Referencia B","3","no"],["Referencia C","57","ok"],["Referencia D","0","no"]]
+    : [["Concepto","Valor",""],["Venta del día","$ 640.000","ok"],["Pago proveedor","$ 210.000","ok"],["Servicio prestado","$ 380.000","ok"],["Pendiente por cobrar","$ 120.000","no"]];
+  $("#pnTable").innerHTML = filas.map((f,i)=>
+    i===0 ? "<div><em>"+esc(f[0])+"</em><u>"+esc(f[1])+"</u></div>"
+          : "<div><em>"+esc(f[0])+"</em><u>"+esc(f[1])+"</u><s class=\""+f[2]+"\">"+(f[2]==="ok"?"Al día":"Pendiente")+"</s></div>").join("");
+
+  destello($("#laptop"));
+}
+function destello(el){
+  if(reduce || !el) return;
+  el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
 }
 
 /* ============================================================
-   9. PROGRESO
+   12. PROGRESO
    ============================================================ */
 function pintarProgreso(){
-  const hechos = [
-    !!ST.nombre, !!ST.que, !!ST.estilo,
-    ST.metas.length>0, ST.funciones.length>0,
-    !!ST.plazo, !!ST.presupuesto, !!(ST.persona||ST.contacto)
-  ];
+  const hechos = esWeb()
+    ? [!!ST.nombre, !!ST.que, !!ST.estilo, ST.metas.length>0, ST.funciones.length>0,
+       !!ST.plazo, !!ST.presupuesto, !!(ST.persona||ST.contacto)]
+    : [!!ST.nombre, !!ST.que, !!ST.hoy, ST.sis.length>0, !!ST.usuarios, !!ST.dispositivo,
+       !!ST.plazo, !!ST.presupuesto, !!(ST.persona||ST.contacto)];
   const n = hechos.filter(Boolean).length;
   $("#progBar").style.width = Math.round((n/hechos.length)*100) + "%";
-  const msg = !ST.nombre ? "Empieza por el nombre de tu negocio"
-            : n<hechos.length ? "Vas en " + n + " de " + hechos.length + " · nada es obligatorio"
-            : "¡Completo! Toca “Ver mi propuesta”";
-  $("#progTxt").textContent = msg;
+  $("#progTxt").textContent = !ST.nombre ? "Empieza por el nombre de tu negocio"
+    : n < hechos.length ? "Vas en " + n + " de " + hechos.length + " · nada es obligatorio"
+    : "¡Completo! Toca “Ver mi propuesta”";
 }
 
 /* ============================================================
-   10. RESULTADO Y RESUMEN
+   13. RESUMEN DE TEXTO
    ============================================================ */
-function etiquetas(ids, fuente){
-  return ids.map(id=>{ const x = fuente.find(f=>f.id===id); return x ? x.label : id; });
+function lineasResumen(){
+  const L = [];
+  if(ST.nombre) L.push(["Negocio", ST.nombre]);
+  if(ST.que)    L.push(["Se dedica a", ST.que]);
+  if(esWeb()){
+    const e = buscar(ESTILOS, ST.estilo);
+    if(e)                   L.push(["Estilo que le gusta", e.label]);
+    if(ST.metas.length)     L.push(["Quiere lograr", etiquetas(ST.metas, METAS).join(", ")]);
+    if(ST.funciones.length) L.push(["Le gustaría que tuviera", etiquetas(ST.funciones, TODAS_F).join(", ")]);
+  } else {
+    if(ST.hoy)         L.push(["Hoy lleva las cuentas", etiquetas([ST.hoy], HOY)[0]]);
+    if(ST.sis.length)  L.push(["Necesita controlar", etiquetas(ST.sis, TODAS_S).join(", ")]);
+    if(ST.usuarios)    L.push(["Personas que lo usarán", etiquetas([ST.usuarios], USUARIOS)[0]]);
+    if(ST.dispositivo) L.push(["Lo usará desde", etiquetas([ST.dispositivo], DISPOSITIVOS)[0]]);
+  }
+  if(ST.plazo)       L.push(["Cuándo lo necesita", etiquetas([ST.plazo], PLAZOS)[0]]);
+  if(ST.presupuesto) L.push(["Presupuesto", etiquetas([ST.presupuesto], presuActual())[0]]);
+  if(ST.persona)     L.push(["Su nombre", ST.persona]);
+  if(ST.contacto)    L.push(["Su contacto", ST.contacto]);
+  return L;
 }
 
 function resumenTexto(){
-  const n   = nivel();
-  const niv = CONFIG.niveles[n];
-  const L = [];
-  L.push("Hola " + CONFIG.nombre + ", llené el formulario de tu página. Este es mi resumen:");
+  const niv = nivelDef();
+  const ruta = esWeb() ? "una página web" : "un sistema administrativo";
+  const L = ["Hola, llené el formulario de tu página. Estoy interesado(a) en " + ruta + ".", ""];
+  lineasResumen().forEach(p=>L.push(p[0] + ": " + p[1]));
   L.push("");
-  if(ST.nombre)   L.push("Negocio: " + ST.nombre);
-  if(ST.que)      L.push("Se dedica a: " + ST.que);
-  const est = ESTILOS.find(e=>e.id===ST.estilo);
-  if(est)         L.push("Estilo que me gusta: " + est.label);
-  if(ST.metas.length)     L.push("Quiero lograr: " + etiquetas(ST.metas, METAS).join(", "));
-  if(ST.funciones.length) L.push("Me gustaría que tuviera: " + etiquetas(ST.funciones, TODAS).join(", "));
-  if(ST.plazo)       L.push("Cuándo: " + etiquetas([ST.plazo], PLAZOS)[0]);
-  if(ST.presupuesto) L.push("Presupuesto: " + etiquetas([ST.presupuesto], PRESUPUESTOS)[0]);
-  L.push("");
-  L.push("La página me sugirió: Nivel " + n + " · " + niv.nombre + " (" + niv.rango + ")");
-  if(ST.persona || ST.contacto){
-    L.push("");
-    if(ST.persona)  L.push("Mi nombre: " + ST.persona);
-    if(ST.contacto) L.push("Mi contacto: " + ST.contacto);
-  }
+  L.push("La página me sugirió: " + niv.nombre + " (" + niv.rango + ")");
   L.push("");
   L.push("Quedo atento(a) a tu propuesta. Gracias.");
   return L.join("\n");
 }
 
+/* ============================================================
+   14. RESULTADO EN PANTALLA
+   ============================================================ */
 function mostrarResultado(){
   leer();
-  const n   = nivel();
-  const niv = CONFIG.niveles[n];
+  const niv = nivelDef();
   const nom = ST.nombre || "tu negocio";
 
-  $("#rLvl").textContent    = "Nivel " + n + " · " + niv.nombre;
+  $("#rLvl").textContent    = niv.nombre;
   $("#rTitulo").textContent = "Lo que le propondría a " + nom;
   $("#rTexto").textContent  = niv.texto;
   $("#rPrecio").textContent = niv.rango;
   $("#rPrecioNota").textContent = niv.nota;
 
-  // si el presupuesto marcado queda por debajo del rango, decirlo de frente
   const av = $("#rAviso");
-  const pres = PRESUPUESTOS.find(p=>p.id===ST.presupuesto);
+  const pres = buscar(presuActual(), ST.presupuesto);
   if(pres && pres.tope !== null && pres.tope < niv.desde){
     av.textContent = "Ojo: marcaste un presupuesto de " + pres.label.toLowerCase() +
-      " y lo que pediste queda por encima de ese rango. No es un problema. Te propondría empezar por una primera etapa que sí entre en tu presupuesto y crecer por partes; en la conversación te digo con franqueza qué conviene dejar para después.";
+      " y lo que pediste queda por encima de ese rango. No es un problema. Te propondría empezar por una " +
+      "primera etapa que sí entre en tu presupuesto y crecer por partes; en la conversación te digo con " +
+      "franqueza qué conviene dejar para después.";
     av.classList.add("on");
-  } else {
-    av.textContent = ""; av.classList.remove("on");
-  }
+  } else { av.textContent = ""; av.classList.remove("on"); }
 
-  const filas = [];
-  if(ST.que)              filas.push(["Tu negocio", ST.que]);
-  const est = ESTILOS.find(e=>e.id===ST.estilo);
-  if(est)                 filas.push(["Estilo", est.label]);
-  if(ST.metas.length)     filas.push(["Objetivos", etiquetas(ST.metas, METAS).join(" · ")]);
-  if(ST.funciones.length) filas.push(["Incluiría", etiquetas(ST.funciones, TODAS).join(" · ")]);
-  if(ST.plazo)            filas.push(["Tiempo", etiquetas([ST.plazo], PLAZOS)[0]]);
-  if(ST.presupuesto)      filas.push(["Presupuesto", etiquetas([ST.presupuesto], PRESUPUESTOS)[0]]);
-  if(!filas.length)       filas.push(["Aún sin datos","Marca algunas opciones arriba y vuelve a tocar el botón."]);
-  $("#rResumen").innerHTML = filas.map(f=>"<li><b>"+esc(f[0])+"</b><span>"+esc(f[1])+"</span></li>").join("");
+  const filas = lineasResumen();
+  $("#rResumen").innerHTML = filas.length
+    ? filas.map(f=>"<li><b>"+esc(f[0])+"</b><span>"+esc(f[1])+"</span></li>").join("")
+    : "<li><b>Aún sin datos</b><span>Marca algunas opciones arriba y vuelve a tocar el botón.</span></li>";
 
-  const wa = $("#btnWa");
-  const l  = waLink(resumenTexto());
-  if(l){ wa.href = l; wa.textContent = "Enviármelo por WhatsApp"; wa.classList.add("btn--wa"); wa.classList.remove("btn--ghost"); }
-  else {
-    wa.href = "mailto:" + CONFIG.correo + "?subject=" + encodeURIComponent("Quiero una propuesta para " + nom) +
-              "&body=" + encodeURIComponent(resumenTexto());
-    wa.textContent = "Enviármelo por correo";
-    wa.classList.remove("btn--wa"); wa.classList.add("btn--ghost");
-  }
+  ponerContacto($("#btnWa"), resumenTexto(),
+    "Enviármela por WhatsApp", "Enviármela por correo",
+    "Quiero una propuesta para " + nom);
 
+  llenarHoja();
   const box = $("#resultado");
   box.classList.add("on");
   box.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block:"start" });
 }
 
 /* ============================================================
-   11. EVENTOS
+   15. HOJA IMPRIMIBLE (PDF)
+   ============================================================ */
+function llenarHoja(){
+  leer();
+  const niv = nivelDef();
+  const nom = ST.nombre || "tu negocio";
+  const ruta = esWeb() ? "Página web" : "Sistema administrativo";
+
+  $("#hjFecha").innerHTML = "Propuesta preliminar<br>Generada el " + hoy();
+  $("#hjTitulo").textContent = esWeb()
+    ? "Página web para " + nom
+    : "Sistema administrativo para " + nom;
+  $("#hjSub").textContent = ST.que
+    ? ruta + " · " + ST.que
+    : ruta + " a la medida del negocio.";
+
+  $("#hjLvl").textContent   = "Solución sugerida · " + niv.nombre;
+  $("#hjMoney").textContent = niv.rango;
+  $("#hjMoneyNota").textContent = niv.nota +
+    " Este rango es una referencia preliminar, no una cotización final.";
+
+  const datos = [];
+  if(ST.nombre)      datos.push(["Negocio o proyecto", ST.nombre]);
+  if(ST.que)         datos.push(["A qué se dedica", ST.que]);
+  if(ST.persona)     datos.push(["Persona de contacto", ST.persona]);
+  if(ST.contacto)    datos.push(["Teléfono o correo", ST.contacto]);
+  if(ST.plazo)       datos.push(["Cuándo lo necesita", etiquetas([ST.plazo], PLAZOS)[0]]);
+  if(ST.presupuesto) datos.push(["Presupuesto indicado", etiquetas([ST.presupuesto], presuActual())[0]]);
+  if(!esWeb() && ST.hoy)         datos.push(["Cómo lleva hoy las cuentas", etiquetas([ST.hoy], HOY)[0]]);
+  if(!esWeb() && ST.usuarios)    datos.push(["Personas que lo usarán", etiquetas([ST.usuarios], USUARIOS)[0]]);
+  if(!esWeb() && ST.dispositivo){
+    const d = buscar(DISPOSITIVOS, ST.dispositivo);
+    datos.push(["Lo usará desde", d ? d.largo : ""]);
+  }
+  if(esWeb()){
+    const e = buscar(ESTILOS, ST.estilo);
+    if(e) datos.push(["Estilo visual preferido", e.label]);
+  }
+  $("#hjDatos").innerHTML = datos.length
+    ? datos.map(d=>"<dt>"+esc(d[0])+"</dt><dd>"+esc(d[1])+"</dd>").join("")
+    : "<dt>Sin datos</dt><dd>No se completó el formulario.</dd>";
+
+  const nada = '<li class="hj-nada">Por definir en la conversación.</li>';
+  if(esWeb()){
+    $("#hjT1").textContent = "Lo que quiere lograr";
+    $("#hjT2").textContent = "Lo que incluiría la página";
+    $("#hjMetas").innerHTML = ST.metas.length ? etiquetas(ST.metas, METAS).map(t=>"<li>"+esc(t)+"</li>").join("") : nada;
+    $("#hjFunc").innerHTML  = ST.funciones.length ? etiquetas(ST.funciones, TODAS_F).map(t=>"<li>"+esc(t)+"</li>").join("") : nada;
+  } else {
+    $("#hjT1").textContent = "La situación de hoy";
+    $("#hjT2").textContent = "Módulos que incluiría";
+    const sit = [];
+    if(ST.hoy)      sit.push("Hoy lleva las cuentas: " + etiquetas([ST.hoy], HOY)[0].toLowerCase());
+    if(ST.usuarios) sit.push("Personas que usarán el sistema: " + etiquetas([ST.usuarios], USUARIOS)[0].toLowerCase());
+    if(ST.dispositivo){
+      const d = buscar(DISPOSITIVOS, ST.dispositivo);
+      sit.push("Lo usará desde: " + (d ? d.largo.toLowerCase() : ""));
+    }
+    $("#hjMetas").innerHTML = sit.length ? sit.map(t=>"<li>"+esc(t)+"</li>").join("") : nada;
+    $("#hjFunc").innerHTML  = ST.sis.length ? etiquetas(ST.sis, TODAS_S).map(t=>"<li>"+esc(t)+"</li>").join("") : nada;
+  }
+
+  $("#hjPie").innerHTML =
+    esc(CONFIG.marca) + " · Soluciones digitales a medida. " +
+    "Este documento lo generó automáticamente la página a partir de las respuestas del interesado, " +
+    "el " + hoy() + ". No constituye una oferta comercial en firme: los valores son rangos de " +
+    "referencia y el precio definitivo se acuerda por escrito después de revisar el alcance." +
+    (waListo ? " Contacto: +" + esc(CONFIG.whatsapp) + " · " + esc(CONFIG.correo)
+             : " Contacto: " + esc(CONFIG.correo));
+}
+
+/* ============================================================
+   16. EVENTOS
    ============================================================ */
 cargar();
-pintarOpciones();
-pintarPreview();
-pintarProgreso();
+ponerModo(ST.modo || "", false);
+if(ST.modo) revelar();
 
 const form = $(".b-form");
-form.addEventListener("input", ()=>{ leer(); pintarPreview(); pintarProgreso(); });
-form.addEventListener("change", ()=>{ leer(); pintarPreview(); pintarProgreso(); });
+["input","change"].forEach(ev=>
+  form.addEventListener(ev, ()=>{ leer(); pintarPreview(); pintarProgreso(); }));
 
 $("#btnVer").addEventListener("click", mostrarResultado);
 
 $("#btnLimpiar").addEventListener("click", ()=>{
-  Object.assign(ST, { nombre:"", que:"", estilo:"noche", metas:[], funciones:[], plazo:"", presupuesto:"", persona:"", contacto:"" });
+  const modo = ST.modo;
+  Object.assign(ST, VACIO, { modo:modo, metas:[], funciones:[], sis:[] });
   try{ localStorage.removeItem(CLAVE); }catch(e){}
   pintarOpciones(); pintarPreview(); pintarProgreso();
   $("#resultado").classList.remove("on");
   $("#fNombre").focus();
 });
+
+$("#btnPdf").addEventListener("click", ()=>{ llenarHoja(); window.print(); });
+window.addEventListener("beforeprint", llenarHoja);
 
 $("#btnCopiar").addEventListener("click", async ()=>{
   const txt = resumenTexto(), aviso = $("#copiado");
@@ -1215,15 +1836,6 @@ $("#btnCopiar").addEventListener("click", async ()=>{
   }
   aviso.classList.add("on");
   setTimeout(()=>aviso.classList.remove("on"), 2200);
-});
-
-$("#btnBajar").addEventListener("click", ()=>{
-  const blob = new Blob([resumenTexto()], { type:"text/plain;charset=utf-8" });
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "mi-propuesta-" + (slug(ST.nombre) || "negocio") + ".txt";
-  document.body.appendChild(a); a.click(); document.body.removeChild(a);
-  setTimeout(()=>URL.revokeObjectURL(a.href), 1500);
 });
 
 })();
